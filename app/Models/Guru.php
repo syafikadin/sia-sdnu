@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Guru extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -40,13 +40,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function admin()
-    {
-        return $this->hasOne(Admin::class);
-    }
+    // public function getRouteKeyName()
+    // {
+    //     return ;
+    // }
 
-    public function guru()
+    public function user()
     {
-        return $this->hasOne(Guru::class);
+        return $this->belongsTo(User::class);
     }
 }

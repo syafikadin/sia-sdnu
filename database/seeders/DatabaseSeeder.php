@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Admin;
+use App\Models\Guru;
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,9 +24,21 @@ class DatabaseSeeder extends Seeder
             'role' => '1'
         ]);
 
+        User::create([
+            'username' => 'ody',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'role' => '2'
+        ]);
+
         Admin::create([
             'user_id' => '1',
             'nama' => 'Syafik'
+        ]);
+
+        Guru::create([
+            'user_id' => '2',
+            'nik' => '195',
+            'nama' => 'Ody'
         ]);
         // \App\Models\User::factory(10)->create();
 

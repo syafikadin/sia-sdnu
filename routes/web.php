@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GuruController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 
@@ -28,3 +29,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/admin', function () {
     return view('admin.index');
 })->middleware('admin');
+
+Route::get('/admin/guru/checkSlug', [GuruController::class, 'checkSlug']);
+Route::resource('/admin/guru', GuruController::class);

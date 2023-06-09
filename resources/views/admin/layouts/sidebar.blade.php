@@ -11,15 +11,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/students*') ? 'active' : '' }}" aria-current="page" href="/admin/students">
-                <span data-feather="users" class="align-text-bottom"></span>
-                Data Siswa
+                <a class="nav-link {{ Request::is('admin/guru*') ? 'active' : '' }}" aria-current="page" href="/admin/guru">
+                <span data-feather="user" class="align-text-bottom"></span>
+                Data Guru
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/teachers*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
-                <span data-feather="user" class="align-text-bottom"></span>
-                Data Guru
+                <a class="nav-link {{ Request::is('admin/students*') ? 'active' : '' }}" aria-current="page" href="/admin/students">
+                <span data-feather="users" class="align-text-bottom"></span>
+                Data Siswa
                 </a>
             </li>
             <li class="nav-item">
