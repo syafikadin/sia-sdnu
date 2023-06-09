@@ -28,6 +28,9 @@ class LoginController extends Controller
             } elseif (auth()->user()->role == '2') {
                 $request->session()->regenerate();
                 return redirect()->intended('/guru');
+            } elseif (auth()->user()->role == '3') {
+                $request->session()->regenerate();
+                return redirect()->intended('/siswa');
             }
         }
 

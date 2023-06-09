@@ -53,7 +53,7 @@ class GuruController extends Controller
         $guru = new Guru([
             'user_id' => $user->id,
             'nik' => $request->nik,
-            'nama' => strtoupper($request->nama),
+            'nama' => $request->nama,
         ]);
         $guru->save($validateData);
 

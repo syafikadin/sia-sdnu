@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Guru;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Siswa;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,6 +31,12 @@ class DatabaseSeeder extends Seeder
             'role' => '2'
         ]);
 
+        User::create([
+            'username' => 'adin',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'role' => '3'
+        ]);
+
         Admin::create([
             'user_id' => '1',
             'nama' => 'Syafik'
@@ -39,6 +46,12 @@ class DatabaseSeeder extends Seeder
             'user_id' => '2',
             'nik' => '195',
             'nama' => 'Ody'
+        ]);
+
+        Siswa::create([
+            'user_id' => '3',
+            'nis' => '185',
+            'nama' => 'Adin'
         ]);
         // \App\Models\User::factory(10)->create();
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\GuruController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,6 @@ Route::get('/', function () {
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
-
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', function () {
@@ -32,7 +32,12 @@ Route::get('/admin', function () {
 
 Route::get('/admin/guru/checkSlug', [GuruController::class, 'checkSlug']);
 Route::resource('/admin/guru', GuruController::class);
+Route::resource('/admin/siswa', SiswaController::class);
 
 Route::get('/guru', function () {
     return view('guru.index');
 })->middleware('guru');
+
+Route::get('/siswa', function () {
+    return view('siswa.index');
+})->middleware('siswa');
