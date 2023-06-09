@@ -32,3 +32,7 @@ Route::get('/admin', function () {
 
 Route::get('/admin/guru/checkSlug', [GuruController::class, 'checkSlug']);
 Route::resource('/admin/guru', GuruController::class);
+
+Route::get('/guru', function () {
+    return view('guru.index');
+})->middleware('guru');
