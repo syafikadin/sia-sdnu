@@ -21,3 +21,10 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/admin', function () {
+    return view('admin.index');
+})->middleware('admin');

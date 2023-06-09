@@ -29,7 +29,7 @@
           <li class="nav-item dropdown">
           @if(Auth::guard('web')->user())
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Helo {{ Auth::guard('web')->user()->nama }}
+              Helo {{ Auth::user()->username }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/admin"><i class="bi bi-layout-text-window-reverse"></i> My Dashboard</a></li>
