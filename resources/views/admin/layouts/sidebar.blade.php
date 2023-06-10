@@ -23,6 +23,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/kelas*') ? 'active' : '' }}" aria-current="page" href="/admin/kelas">
+                <span data-feather="users" class="align-text-bottom"></span>
+                Data Kelas
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/jadwals*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
                 <span data-feather="user" class="align-text-bottom"></span>
                 Jadwal Pelajaran

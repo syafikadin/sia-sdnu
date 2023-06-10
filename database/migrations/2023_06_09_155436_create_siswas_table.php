@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('kelas_id');
             $table->string('nis')->unique();
             $table->string('nama');
-            // $table->string('jenis_kelamin');
-            // $table->date('tanggal_lahir');
-            // $table->string('alamat');
+            $table->boolean('jenis_kelamin');
+            $table->date('tanggal_lahir');
+            $table->string('alamat');
             $table->timestamps();
         });
     }

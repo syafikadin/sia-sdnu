@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Guru;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Kelas;
 use App\Models\Siswa;
 use Illuminate\Database\Seeder;
 
@@ -45,13 +46,27 @@ class DatabaseSeeder extends Seeder
         Guru::create([
             'user_id' => '2',
             'nik' => '195',
-            'nama' => 'Ody'
+            'nama' => 'Ody',
+            'gelar' => 'S.Pd.',
+            'jenis_kelamin' => false,
+            'tanggal_lahir' => '2012-04-19',
+            'alamat' => 'Jl. Sultan Agung'
+        ]);
+
+        Kelas::create([
+            'guru_id' => '1',
+            'nama_kelas' => '1A'
         ]);
 
         Siswa::create([
             'user_id' => '3',
+            'kelas_id' => '1',
             'nis' => '185',
-            'nama' => 'Adin'
+            'nama' => 'Adin',
+            'jenis_kelamin' => false,
+            'tanggal_lahir' => '2012-04-19',
+            'alamat' => 'Jl. Sultan Agung'
+
         ]);
         // \App\Models\User::factory(10)->create();
 

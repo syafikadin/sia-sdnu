@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KelasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SiswaController;
@@ -30,9 +31,9 @@ Route::get('/admin', function () {
     return view('admin.index');
 })->middleware('admin');
 
-Route::get('/admin/guru/checkSlug', [GuruController::class, 'checkSlug']);
 Route::resource('/admin/guru', GuruController::class);
 Route::resource('/admin/siswa', SiswaController::class);
+Route::resource('/admin/kelas', KelasController::class);
 
 Route::get('/guru', function () {
     return view('guru.index');

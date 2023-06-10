@@ -49,4 +49,9 @@ class Siswa extends Authenticatable
     {
         return $this->belongsTo(User::class);
     }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
 }

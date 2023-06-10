@@ -18,7 +18,10 @@
         <thead>
             <tr class="text-center">
                 <th scope="col">No</th>
-                <th scope="col">Nama</th>
+                <th scope="col">NIK</th>
+                <th scope="col">Nama Guru</th>
+                <th scope="col">Tanggal Lahir</th>
+                <th scope="col">L/P</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -26,8 +29,10 @@
             @foreach ($gurus as $guru)    
             <tr>
             <td class="text-center">{{ $loop->iteration }}</td>
+            <td>{{ $guru->nik }}</td>
             <td>{{ $guru->nama }}</td>
-            {{-- <td>{{ $guru->nama }}</td> --}}
+            <td>{{ ($guru->jenis_kelamin == 0) ? 'L' : 'P' }}</td>
+            <td>{{ $guru->tanggal_lahir }}</td>
             <td class="text-center">
                 <a href="/admin/guru/{{ $guru->id }}" class="badge bg-info"><span data-feather="info" class="align-text-bottom"></span></a>
                 <a href="/admin/guru/{{ $guru->id }}/edit" class="badge bg-warning"><span data-feather="edit" class="align-text-bottom"></span></a>

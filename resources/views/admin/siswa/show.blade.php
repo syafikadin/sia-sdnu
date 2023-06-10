@@ -25,12 +25,10 @@
             <div class="col-lg-8 ms-4">
                 <h2 class="mb-4">{{ $siswa->nama }}</h2>
                 <p>NIS : {{ $siswa->nis }}</p>
-                {{-- <p>Kelas : {{ $siswa->kelas }}</p> --}}
-                {{-- <p>Jenis Kelamin : {{ $siswa->jenis_kelamin }}</p>
+                <p>Kelas : {{ $siswa->kelas->nama_kelas }}</p>
+                <p>Jenis Kelamin : {{ ($siswa->jenis_kelamin == 0) ? 'Laki-laki' : 'Perempuan' }}</p>
                 <p>Tanggal Lahir : {{ $siswa->tanggal_lahir }}</p>
                 <p>Alamat : {{ $siswa->alamat }}</p>
-                <p>Username : {{ $siswa->username }}</p>
-                <p>Password : {{ $siswa->password }}</p> --}}
             </div>
         </div>
     </div>
