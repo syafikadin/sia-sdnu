@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col-lg-8 ms-4">
-                <h2 class="mb-4">{{ $guru->nama }}</h2>
+                <h2 class="mb-4">{{ $guru->nama_guru }}</h2>
                 <p>NIK : {{ $guru->nik }}</p>
                 {{-- <p>Kelas : {{ $guru->kelas }}</p> --}}
                 {{-- <p>Jenis Kelamin : {{ $guru->jenis_kelamin }}</p>

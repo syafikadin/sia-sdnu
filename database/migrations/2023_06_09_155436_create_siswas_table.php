@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('kelas_id');
             $table->string('nis')->unique();
-            $table->string('nama');
+            $table->string('nama_siswa');
             $table->boolean('jenis_kelamin');
             $table->date('tanggal_lahir');
             $table->string('alamat');

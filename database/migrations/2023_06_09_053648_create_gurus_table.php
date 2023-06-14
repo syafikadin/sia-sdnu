@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('nik')->unique();
-            $table->string('nama');
+            $table->string('nama_guru');
             $table->string('gelar');
             $table->string('jenis_kelamin');
             $table->date('tanggal_lahir');

@@ -20,8 +20,8 @@
                 <th scope="col">No</th>
                 <th scope="col">NIK</th>
                 <th scope="col">Nama Guru</th>
-                <th scope="col">Tanggal Lahir</th>
                 <th scope="col">L/P</th>
+                <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -30,7 +30,7 @@
             <tr>
             <td class="text-center">{{ $loop->iteration }}</td>
             <td>{{ $guru->nik }}</td>
-            <td>{{ $guru->nama }}</td>
+            <td>{{ $guru->nama_guru }}</td>
             <td>{{ ($guru->jenis_kelamin == 0) ? 'L' : 'P' }}</td>
             <td>{{ $guru->tanggal_lahir }}</td>
             <td class="text-center">

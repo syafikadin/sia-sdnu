@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="col-lg-8 ms-4">
-                <h2 class="mb-4">{{ $siswa->nama }}</h2>
+                <h2 class="mb-4">{{ $siswa->nama_siswa }}</h2>
                 <p>NIS : {{ $siswa->nis }}</p>
                 <p>Kelas : {{ $siswa->kelas->nama_kelas }}</p>
                 <p>Jenis Kelamin : {{ ($siswa->jenis_kelamin == 0) ? 'Laki-laki' : 'Perempuan' }}</p>

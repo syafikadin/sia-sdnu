@@ -40,29 +40,29 @@ class DatabaseSeeder extends Seeder
 
         Admin::create([
             'user_id' => '1',
-            'nama' => 'Syafik'
+            'nama_admin' => 'Syafik'
         ]);
 
         Guru::create([
             'user_id' => '2',
             'nik' => '195',
-            'nama' => 'Ody',
+            'nama_guru' => 'Ody',
             'gelar' => 'S.Pd.',
             'jenis_kelamin' => false,
             'tanggal_lahir' => '2012-04-19',
             'alamat' => 'Jl. Sultan Agung'
         ]);
 
-        Kelas::create([
-            'guru_id' => '1',
-            'nama_kelas' => '1A'
-        ]);
+        // Kelas::create([
+        //     'guru_id' => '1',
+        //     'nama_kelas' => '1A'
+        // ]);
 
         Siswa::create([
             'user_id' => '3',
             'kelas_id' => '1',
             'nis' => '185',
-            'nama' => 'Adin',
+            'nama_siswa' => 'Adin',
             'jenis_kelamin' => false,
             'tanggal_lahir' => '2012-04-19',
             'alamat' => 'Jl. Sultan Agung'

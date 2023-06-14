@@ -31,7 +31,7 @@
             <tr>
             <td class="text-center">{{ $loop->iteration }}</td>
             <td>{{ $siswa->nis }}</td>
-            <td>{{ $siswa->nama }}</td>
+            <td>{{ $siswa->nama_siswa }}</td>
             <td>{{ $siswa->tanggal_lahir }}</td>
             <td>{{ ($siswa->jenis_kelamin == 0) ? 'L' : 'P' }}</td>
             <td>{{ $siswa->kelas->nama_kelas }}</td>

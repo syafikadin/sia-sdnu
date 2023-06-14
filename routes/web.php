@@ -31,10 +31,6 @@ Route::get('/admin', function () {
     return view('admin.index');
 })->middleware('admin');
 
-Route::resource('/admin/guru', GuruController::class);
-Route::resource('/admin/siswa', SiswaController::class);
-Route::resource('/admin/kelas', KelasController::class);
-
 Route::get('/guru', function () {
     return view('guru.index');
 })->middleware('guru');
@@ -42,3 +38,8 @@ Route::get('/guru', function () {
 Route::get('/siswa', function () {
     return view('siswa.index');
 })->middleware('siswa');
+
+
+Route::resource('/admin/guru', GuruController::class);
+Route::resource('/admin/siswa', SiswaController::class);
+Route::resource('/admin/kelas', KelasController::class);
