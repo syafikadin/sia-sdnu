@@ -30,7 +30,7 @@
             <tr>
             <td class="text-center">{{ $loop->iteration }}</td>
             <td>{{ $guru->nik }}</td>
-            <td>{{ $guru->nama_guru }}</td>
+            <td>{{ $guru->nama_guru }}, {{ $guru->gelar }}</td>
             <td>{{ ($guru->jenis_kelamin == 0) ? 'L' : 'P' }}</td>
             <td>{{ $guru->tanggal_lahir }}</td>
             <td class="text-center">

@@ -27,7 +27,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'username' => 'ody',
+            'username' => 'audy',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'role' => '2'
+        ]);
+
+        User::create([
+            'username' => 'khalista',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'role' => '2'
         ]);
@@ -45,29 +51,45 @@ class DatabaseSeeder extends Seeder
 
         Guru::create([
             'user_id' => '2',
-            'nik' => '195',
-            'nama_guru' => 'Ody',
-            'gelar' => 'S.Pd.',
-            'jenis_kelamin' => false,
-            'tanggal_lahir' => '2012-04-19',
+            'nik' => '185',
+            'nama_guru' => 'Audy Khalista',
+            'gelar' => 'S.Kom.',
+            'jenis_kelamin' => true,
+            'tanggal_lahir' => '2000-06-17',
             'alamat' => 'Jl. Sultan Agung'
         ]);
 
-        // Kelas::create([
-        //     'guru_id' => '1',
-        //     'nama_kelas' => '1A'
-        // ]);
+        Guru::create([
+            'user_id' => '3',
+            'nik' => '195',
+            'nama_guru' => 'Mochammad Syafiuddin',
+            'gelar' => 'S.Pd.',
+            'jenis_kelamin' => false,
+            'tanggal_lahir' => '2000-06-16',
+            'alamat' => 'Jl. Sultan Agung'
+        ]);
 
         Siswa::create([
-            'user_id' => '3',
+            'user_id' => '4',
             'kelas_id' => '1',
-            'nis' => '185',
+            'nis' => '205',
             'nama_siswa' => 'Adin',
             'jenis_kelamin' => false,
             'tanggal_lahir' => '2012-04-19',
             'alamat' => 'Jl. Sultan Agung'
 
         ]);
+
+        Kelas::create([
+            'guru_id' => '1',
+            'nama_kelas' => '1A'
+        ]);
+
+        Kelas::create([
+            'guru_id' => '2',
+            'nama_kelas' => '2A'
+        ]);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
