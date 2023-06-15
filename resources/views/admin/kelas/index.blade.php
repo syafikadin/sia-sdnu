@@ -13,21 +13,24 @@
     @endif
 
     <div class="table-responsive col-lg-8">
-        <a href="/admin/kela/create" class="btn btn-primary">Buat Mapel</a>
+        <a href="/admin/kelas/create" class="btn btn-primary">Buat Mapel</a>
         <table class="table table-striped table-sm mt-3">
         <thead>
             <tr class="text-center">
                 <th scope="col">No</th>
-                <th scope="col">Mata Pelajaran</th>
-                <th scope="col">Ringkasan</th>
+                <th scope="col">Nama Kelas</th>
+                <th scope="col">Wali Kelas</th>
+                <th scope="col">Jumlah Siswa</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($kelas as $kls)    
+            @foreach ($data_kelas as $kls)    
             <tr>
             <td class="text-center">{{ $loop->iteration }}</td>
-            <td>{{ $kls }}</td>
+            <td>{{ $kls->nama_kelas }}</td>
+            <td>{{ $kls->guru->nama_guru }}</td>
+            <td>{{ $kls->jumlah_anggota }}</td>
             <td class="text-center">
                 <a href="/admin/kelas/{{ $kls->id }}/edit" class="badge bg-warning"><span data-feather="edit" class="align-text-bottom"></span></a>
                 

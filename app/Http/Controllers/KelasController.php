@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kela;
+use App\Models\Kelas;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
-class KelaController extends Controller
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,12 @@ class KelaController extends Controller
      */
     public function index()
     {
-        return view('admin.kelas.index', [
-            'kelas' => Kela::all()
-        ]);
+        $data_kelas = Kelas::all();
+        foreach ($data_kelas as $kelas) {
+            $jumlah_anggota = Siswa::where('kelas_id', $kelas->id)->count();
+            $kelas->jumlah_anggota = $jumlah_anggota;
+        }
+        return view('admin.kelas.index', compact('data_kelas'));
     }
 
     /**
@@ -46,7 +50,7 @@ class KelaController extends Controller
      * @param  \App\Models\Kela  $kela
      * @return \Illuminate\Http\Response
      */
-    public function show(Kela $kela)
+    public function show(Kelas $kela)
     {
         //
     }
@@ -57,7 +61,7 @@ class KelaController extends Controller
      * @param  \App\Models\Kela  $kela
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kela $Kela)
+    public function edit(Kelas $Kela)
     {
         return $Kela;
     }
@@ -69,7 +73,7 @@ class KelaController extends Controller
      * @param  \App\Models\Kela  $Kela
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kela $Kela)
+    public function update(Request $request, Kelas $Kela)
     {
         //
     }
@@ -80,7 +84,7 @@ class KelaController extends Controller
      * @param  \App\Models\Kela  $Kela
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kela $Kela)
+    public function destroy(Kelas $Kela)
     {
         //
     }
