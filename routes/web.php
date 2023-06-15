@@ -4,6 +4,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
 
 /*
@@ -43,3 +44,4 @@ Route::get('/siswa', function () {
 Route::resource('/admin/guru', GuruController::class);
 Route::resource('/admin/siswa', SiswaController::class);
 Route::resource('/admin/kelas', KelasController::class);
+Route::resource('/admin/mapel', MapelController::class);

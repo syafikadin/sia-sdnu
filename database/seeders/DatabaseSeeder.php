@@ -8,6 +8,7 @@ use App\Models\Guru;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Kelas;
+use App\Models\Mapel;
 use App\Models\Siswa;
 use Illuminate\Database\Seeder;
 
@@ -88,6 +89,16 @@ class DatabaseSeeder extends Seeder
         Kelas::create([
             'guru_id' => '2',
             'nama_kelas' => '2A'
+        ]);
+
+        Mapel::create([
+            'nama_mapel' => 'Bahasa Indonesia',
+            'ringkasan' => 'BI'
+        ]);
+
+        Mapel::create([
+            'nama_mapel' => 'Matematika',
+            'ringkasan' => 'MTK'
         ]);
 
         // \App\Models\User::factory(10)->create();

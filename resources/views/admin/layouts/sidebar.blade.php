@@ -29,12 +29,18 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/jadwals*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
+                <a class="nav-link {{ Request::is('admin/mapel*') ? 'active' : '' }}" aria-current="page" href="/admin/mapel">
                 <span data-feather="user" class="align-text-bottom"></span>
-                Jadwal Pelajaran
+                Data Mata Pelajaran
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/mapel*') ? 'active' : '' }}" aria-current="page" href="/admin/mapel">
+                <span data-feather="user" class="align-text-bottom"></span>
+                Data Pembelajaran
+                </a>
+            </li>
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/rapors*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
                 <span data-feather="user" class="align-text-bottom"></span>
                 Rapor
@@ -51,7 +57,7 @@
                 <span data-feather="user" class="align-text-bottom"></span>
                 Berita Sekolah
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </nav>
