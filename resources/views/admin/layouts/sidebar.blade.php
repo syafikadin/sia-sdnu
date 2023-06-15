@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/mapel*') ? 'active' : '' }}" aria-current="page" href="/admin/mapel">
+                <a class="nav-link {{ Request::is('admin/pembelajaran*') ? 'active' : '' }}" aria-current="page" href="/admin/pembelajaran">
                 <span data-feather="user" class="align-text-bottom"></span>
                 Data Pembelajaran
                 </a>

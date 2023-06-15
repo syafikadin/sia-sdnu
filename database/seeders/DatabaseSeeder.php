@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Kls;
 use App\Models\Guru;
+use App\Models\Kela;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Kelas;
@@ -70,25 +72,27 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'Jl. Sultan Agung'
         ]);
 
-        Siswa::create([
-            'user_id' => '4',
-            'kelas_id' => '1',
-            'nis' => '205',
-            'nama_siswa' => 'Adin',
-            'jenis_kelamin' => false,
-            'tanggal_lahir' => '2012-04-19',
-            'alamat' => 'Jl. Sultan Agung'
+        // Siswa::create([
+        //     'user_id' => '4',
+        //     'kelas_id' => '1',
+        //     'nis' => '205',
+        //     'nama_siswa' => 'Adin',
+        //     'jenis_kelamin' => false,
+        //     'tanggal_lahir' => '2012-04-19',
+        //     'alamat' => 'Jl. Sultan Agung'
+        // ]);
 
-        ]);
+        // Kelas::create([
+        //     // 'guru_id' => '1',
+        //     'nama_kelas' => '1A'
+        // ]);
 
-        Kelas::create([
-            'guru_id' => '1',
-            'nama_kelas' => '1A'
-        ]);
-
-        Kelas::create([
-            'guru_id' => '2',
-            'nama_kelas' => '2A'
+        // Kelas::create([
+        //     'guru_id' => '2',
+        //     'nama_kelas' => '2A'
+        // ]);
+        Kela::create([
+            "nama_kelas" => '1A'
         ]);
 
         Mapel::create([

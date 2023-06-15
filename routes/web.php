@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuruController;
-use App\Http\Controllers\KelasController;
+use App\Http\Controllers\KelaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MapelController;
@@ -40,8 +40,7 @@ Route::get('/siswa', function () {
     return view('siswa.index');
 })->middleware('siswa');
 
-
 Route::resource('/admin/guru', GuruController::class);
 Route::resource('/admin/siswa', SiswaController::class);
-Route::resource('/admin/kelas', KelasController::class);
 Route::resource('/admin/mapel', MapelController::class);
+Route::resource('/admin/kelas', KelaController::class);
