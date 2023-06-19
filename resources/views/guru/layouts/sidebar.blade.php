@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/nilai*') ? 'active' : '' }}" aria-current="page" href="/admin/nilai">
+                <a class="nav-link {{ Request::is('guru/nilai*') ? 'active' : '' }}" aria-current="page" href="/guru/nilai">
                 <span data-feather="user" class="align-text-bottom"></span>
                 Penilaian
                 </a>

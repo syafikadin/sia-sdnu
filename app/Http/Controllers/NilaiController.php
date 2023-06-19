@@ -34,7 +34,7 @@ class NilaiController extends Controller
             $penilaian->jumlah_anggota_kelas = count($data_anggota_kelas);
             $penilaian->jumlah_telah_dinilai = count($data_nilai);
         }
-        return view('admin.nilai.index', compact('data_penilaian'));
+        return view('guru.nilai.index', compact('data_penilaian'));
     }
 
     /**
@@ -51,9 +51,9 @@ class NilaiController extends Controller
         $data_nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->get();
 
         if (count($data_nilai) == 0) {
-            return view('admin.nilai.create', compact('pembelajaran', 'data_anggota_kelas'));
+            return view('guru.nilai.create', compact('pembelajaran', 'data_anggota_kelas'));
         } else {
-            return view('admin.nilai.edit', compact('pembelajaran', 'data_nilai'));
+            return view('guru.nilai.edit', compact('pembelajaran', 'data_nilai'));
         }
     }
 
@@ -80,7 +80,7 @@ class NilaiController extends Controller
         }
         $store_data_nilai = $data_nilai_siswa;
         Nilai::insert($store_data_nilai);
-        return redirect('admin/nilai')->with('toast_success', 'Data nilai berhasil disimpan.');
+        return redirect('guru/nilai')->with('toast_success', 'Data nilai berhasil disimpan.');
     }
 
     /**
@@ -127,7 +127,7 @@ class NilaiController extends Controller
                 return back()->with('toast_error', 'Nilai harus berisi antara 0 s/d 100');
             }
         }
-        return redirect('admin/nilai')->with('toast_success', 'Data nilai berhasil diedit.');
+        return redirect('guru/nilai')->with('toast_success', 'Data nilai berhasil diedit.');
     }
 
     /**
