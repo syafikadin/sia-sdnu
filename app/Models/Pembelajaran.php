@@ -12,4 +12,24 @@ class Pembelajaran extends Model
     protected $guarded = [
         'id',
     ];
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
+
+    public function mapel()
+    {
+        return $this->belongsTo(Mapel::class);
+    }
+
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class);
+    }
+
+    public function nilai()
+    {
+        return $this->hasMany(Nilai::class);
+    }
 }

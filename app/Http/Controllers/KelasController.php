@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class KelasController extends Controller
 {
@@ -36,7 +38,7 @@ class KelasController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreKelaRequest  $request
+     * @param  \App\Http\Requests\StoreKelasRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -47,7 +49,7 @@ class KelasController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Kela  $kela
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
     public function show(Kelas $kela)
@@ -58,30 +60,46 @@ class KelasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Kela  $kela
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kelas $Kela)
+    public function edit(Kelas $kela)
     {
-        return $Kela;
+        return view('admin.kelas.edit', [
+            'kela' => $kela,
+            'gurus' => Guru::all()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateKelaRequest  $request
-     * @param  \App\Models\Kela  $Kela
+     * @param  \App\Models\Kelas  $Kelas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kelas $Kela)
+    public function update(Request $request, Kelas $kela)
     {
-        //
+        Validator::make($request->all(), [
+            'nama_kelas' => 'required|min:1|max:30',
+            'guru_id' => 'required',
+        ]);
+
+        $kelas = Kelas::findorfail($kela);
+        $data_kelas = [
+            'nama_kelas' => $request->nama_kelas,
+            'guru_id' => $request->guru_id,
+        ];
+        $kelas->update($data_kelas);
+        // return back()->with('toast_success', 'Kelas berhasil diedit');
+
+        return redirect('/admin/kelas')->with('success', 'Kelas has been updated');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Kela  $Kela
+     * @param  \App\Models\Kelas  $Kelas
      * @return \Illuminate\Http\Response
      */
     public function destroy(Kelas $Kela)

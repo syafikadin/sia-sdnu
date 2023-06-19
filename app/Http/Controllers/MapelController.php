@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Mapel;
 use App\Http\Requests\StoreMapelRequest;
 use App\Http\Requests\UpdateMapelRequest;
+use App\Models\Kelas;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MapelController extends Controller
 {
@@ -60,7 +63,9 @@ class MapelController extends Controller
      */
     public function edit(Mapel $mapel)
     {
-        return $mapel;
+        return view('admin.mapel.edit', [
+            'mapel' => $mapel
+        ]);
     }
 
     /**
@@ -70,9 +75,17 @@ class MapelController extends Controller
      * @param  \App\Models\Mapel  $mapel
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMapelRequest $request, Mapel $mapel)
+    public function update(Request $request, Mapel $mapel)
     {
-        //
+        // $rules = [
+        //     'nama_mapel' => 'required|min:1|max:30',
+        // ];
+
+        // $validateData = $request->validate($rules);
+
+        // Mapel::where('id', $mapel->id)->update($validateData);
+
+        return redirect('/dashboard/posts')->with('success', 'Post has been updated');
     }
 
     /**

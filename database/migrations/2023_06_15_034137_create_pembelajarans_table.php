@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('pembelajarans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kelas_id');
+            $table->foreignId('mapel_id');
+            $table->foreignId('guru_id')->nullable();
             $table->timestamps();
         });
     }

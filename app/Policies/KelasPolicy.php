@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Kela;
+use App\Models\Kelas;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class KelaPolicy
+class KelasPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class KelaPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Kela  $kela
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Kela $kela)
+    public function view(User $user, Kelas $kelas)
     {
         //
     }
@@ -48,10 +48,10 @@ class KelaPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Kela  $kela
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Kela $kela)
+    public function update(User $user, Kelas $kelas)
     {
         //
     }
@@ -60,10 +60,10 @@ class KelaPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Kela  $kela
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Kela $kela)
+    public function delete(User $user, Kelas $kelas)
     {
         //
     }
@@ -72,10 +72,10 @@ class KelaPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Kela  $kela
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Kela $kela)
+    public function restore(User $user, Kelas $kelas)
     {
         //
     }
@@ -84,10 +84,10 @@ class KelaPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Kela  $kela
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Kela $kela)
+    public function forceDelete(User $user, Kelas $kelas)
     {
         //
     }

@@ -40,6 +40,12 @@
                 Data Pembelajaran
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/nilai*') ? 'active' : '' }}" aria-current="page" href="/admin/nilai">
+                <span data-feather="user" class="align-text-bottom"></span>
+                Nilai
+                </a>
+            </li>
             {{-- <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/rapors*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
                 <span data-feather="user" class="align-text-bottom"></span>

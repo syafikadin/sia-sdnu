@@ -54,4 +54,9 @@ class Guru extends Authenticatable
     {
         return $this->hasMany(Kelas::class);
     }
+
+    public function pembelajaran()
+    {
+        return $this->hasMany(Pembelajaran::class);
+    }
 }
