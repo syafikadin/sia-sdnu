@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('gurus', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('nik')->unique();
             $table->string('nama_guru');
-            $table->string('gelar');
+            $table->string('gelar')->nullable();
+            $table->string('nip')->unique()->nullable();
             $table->string('jenis_kelamin');
             $table->date('tanggal_lahir');
             $table->string('alamat');

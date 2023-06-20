@@ -73,7 +73,7 @@ class DatabaseSeeder extends Seeder
 
         Guru::create([
             'user_id' => '2',
-            'nik' => '195',
+            'nip' => '195',
             'nama_guru' => 'Audy Khalista',
             'gelar' => 'S.Kom.',
             'jenis_kelamin' => true,
@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
 
         Guru::create([
             'user_id' => '3',
-            'nik' => '196',
+            'nip' => '196',
             'nama_guru' => 'Mochammad Syafiuddin',
             'gelar' => 'S.Pd.',
             'jenis_kelamin' => false,
