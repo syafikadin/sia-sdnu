@@ -17,12 +17,13 @@ class KelasController extends Controller
      */
     public function index()
     {
+        $data_guru = Guru::all();
         $data_kelas = Kelas::all();
         foreach ($data_kelas as $kelas) {
             $jumlah_anggota = Siswa::where('kelas_id', $kelas->id)->count();
             $kelas->jumlah_anggota = $jumlah_anggota;
         }
-        return view('admin.kelas.index', compact('data_kelas'));
+        return view('admin.kelas.index', compact('data_kelas', 'data_guru'));
     }
 
     /**
@@ -43,7 +44,6 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -65,10 +65,6 @@ class KelasController extends Controller
      */
     public function edit(Kelas $kela)
     {
-        return view('admin.kelas.edit', [
-            'kela' => $kela,
-            'gurus' => Guru::all()
-        ]);
     }
 
     /**

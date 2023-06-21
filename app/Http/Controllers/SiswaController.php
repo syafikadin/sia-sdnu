@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SiswaController extends Controller
 {
@@ -16,7 +18,8 @@ class SiswaController extends Controller
     public function index()
     {
         return view('admin.siswa.index', [
-            'siswas' => Siswa::all()
+            'siswas' => Siswa::all(),
+            'data_kelas' => Kelas::all()
         ]);
     }
 
@@ -39,27 +42,37 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'nis' => 'required',
-            'nama' => 'required',
+            'nis' => 'required|numeric',
+            'nama_siswa' => 'required',
+            'kelas_id' => 'required',
+            'jenis_kelamin' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required'
         ]);
 
-        $user = new User([
-            'username' => str_replace(' ', '', $request->nama . $request->nis),
-            'password' => bcrypt('123456'),
-            'role' => 2,
-        ]);
-        $user->save();
+        if (!$validateData) {
+            return back()->with('toast_error', $validateData->messages()->all()[0])->withInput();
+        } else {
+            $user = new User([
+                'username' => strtolower(str_replace(' ', '', $request->nama_siswa . $request->nis)),
+                'password' => bcrypt('123456'),
+                'role' => 2,
+            ]);
+
+            $user->save();
+        }
 
         $siswa = new Siswa([
             'user_id' => $user->id,
+            'kelas_id' => $request->kelas_id,
             'nis' => $request->nis,
-            'nama' => $request->nama,
+            'nama_siswa' => $request->nama_siswa,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'alamat' => $request->alamat,
         ]);
+
         $siswa->save($validateData);
-
-        // $validateData['user_id'] = auth()->user()->id;
-
-        // Guru::create($validateData);
 
         return redirect('/admin/siswa')->with('success', 'Siswa telah ditambahkan');
     }
@@ -97,7 +110,21 @@ class SiswaController extends Controller
      */
     public function update(Request $request, Siswa $siswa)
     {
-        //
+        $rules = [
+            'nis' => 'required|numeric',
+            'nama_siswa' => 'required',
+            'kelas_id' => 'required',
+            'jenis_kelamin' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required'
+        ];
+
+        $validateData = $request->validate($rules);
+
+        Siswa::where('id', $siswa->id)
+            ->update($validateData);
+
+        return redirect('/admin/siswa')->with('success', 'Data siswa telah dirubah');
     }
 
     /**

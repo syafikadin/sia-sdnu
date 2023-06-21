@@ -102,10 +102,10 @@
     </div>
     {{-- End Modal Tambah --}}
 
-    <div class="table-responsive col-lg-8">        
+    <div class="table-responsive col-lg-10">        
         <table class="table table-striped table-sm mt-3">
         <thead>
-            <tr class="text-center">
+            <tr>
                 <th scope="col">No</th>
                 <th scope="col">NIP</th>
                 <th scope="col">Nama Guru</th>
@@ -117,12 +117,12 @@
         <tbody>
             @foreach ($gurus as $guru)    
             <tr>
-            <td class="text-center">{{ $loop->iteration }}</td>
+            <td>{{ $loop->iteration }}</td>
             <td>{{ $guru->nip }}</td>
             <td>{{ $guru->nama_guru }}, {{ $guru->gelar }}</td>
             <td>{{ ($guru->jenis_kelamin == 0) ? 'L' : 'P' }}</td>
             <td>{{ $guru->tanggal_lahir }}</td>
-            <td class="text-center">
+            <td>
                 <a href="/admin/guru/{{ $guru->id }}" class="badge bg-info"><span data-feather="info" class="align-text-bottom"></span></a>
                 {{-- <a href="/admin/guru/{{ $guru->id }}/edit" class="badge bg-warning"></a>  --}}
                 <button class="badge bg-warning border-0" data-bs-toggle="modal" data-bs-target="#modal-edit-{{ $guru->id }}">

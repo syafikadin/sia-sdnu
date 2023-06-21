@@ -7,7 +7,6 @@ namespace Database\Seeders;
 use App\Models\Guru;
 use App\Models\User;
 use App\Models\Admin;
-use App\Models\AnggotaKelas;
 use App\Models\Kelas;
 use App\Models\Mapel;
 use App\Models\Nilai;
