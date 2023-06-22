@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mapel;
-use App\Http\Requests\StoreMapelRequest;
-use App\Http\Requests\UpdateMapelRequest;
-use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -39,9 +36,21 @@ class MapelController extends Controller
      * @param  \App\Http\Requests\StoreMapelRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMapelRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'nama_mapel' => 'required',
+            'ringkasan' => 'required',
+        ]);
+
+        $mapel = new Mapel([
+            'nama_mapel' => $request->nama_mapel,
+            'ringkasan' => $request->ringkasan,
+        ]);
+
+        $mapel->save($validateData);
+
+        return redirect('/admin/mapel')->with('success', 'Mapel telah ditambahkan');
     }
 
     /**
@@ -77,15 +86,17 @@ class MapelController extends Controller
      */
     public function update(Request $request, Mapel $mapel)
     {
-        // $rules = [
-        //     'nama_mapel' => 'required|min:1|max:30',
-        // ];
+        $rules = [
+            'nama_mapel' => 'required',
+            'ringkasan' => 'required',
+        ];
 
-        // $validateData = $request->validate($rules);
+        $validateData = $request->validate($rules);
 
-        // Mapel::where('id', $mapel->id)->update($validateData);
+        Mapel::where('id', $mapel->id)
+            ->update($validateData);
 
-        return redirect('/dashboard/posts')->with('success', 'Post has been updated');
+        return redirect('/admin/mapel')->with('success', 'Data mapel telah dirubah');
     }
 
     /**
@@ -96,6 +107,8 @@ class MapelController extends Controller
      */
     public function destroy(Mapel $mapel)
     {
-        //
+        Mapel::destroy($mapel->id);
+
+        return redirect('/admin/mapel')->with('success', 'Mapel berhasil dihapus');
     }
 }

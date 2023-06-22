@@ -137,7 +137,47 @@ class DatabaseSeeder extends Seeder
 
         Kelas::create([
             'guru_id' => '2',
+            'nama_kelas' => '1B'
+        ]);
+        Kelas::create([
+            'guru_id' => '1',
             'nama_kelas' => '2A'
+        ]);
+        Kelas::create([
+            'guru_id' => '2',
+            'nama_kelas' => '2B'
+        ]);
+        Kelas::create([
+            'guru_id' => '1',
+            'nama_kelas' => '3A'
+        ]);
+        Kelas::create([
+            'guru_id' => '2',
+            'nama_kelas' => '3B'
+        ]);
+        Kelas::create([
+            'guru_id' => '1',
+            'nama_kelas' => '4A'
+        ]);
+        Kelas::create([
+            'guru_id' => '2',
+            'nama_kelas' => '4B'
+        ]);
+        Kelas::create([
+            'guru_id' => '1',
+            'nama_kelas' => '5A'
+        ]);
+        Kelas::create([
+            'guru_id' => '1',
+            'nama_kelas' => '5B'
+        ]);
+        Kelas::create([
+            'guru_id' => '1',
+            'nama_kelas' => '6A'
+        ]);
+        Kelas::create([
+            'guru_id' => '2',
+            'nama_kelas' => '6B'
         ]);
 
         Mapel::create([

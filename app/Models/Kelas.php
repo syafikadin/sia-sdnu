@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kelas extends Model
 {
+    protected $guarded = [
+        'id',
+    ];
+
     use HasFactory;
 
     public function guru()

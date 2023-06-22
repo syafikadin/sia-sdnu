@@ -43,7 +43,7 @@
                         <select name="guru_id" class="form-select" aria-label="Default select example">
                             <option selected>--Pilih Wali Kelas--</option>
                             @foreach ($data_guru as $guru)
-                                <option value="{{ $guru->id }}" required>{{ $guru->nama_guru }}</option>
+                                <option value="{{ $guru->id }}" required>{{ $guru->nama_guru }}, {{ $guru->gelar }}</option>
                             @endforeach
                         </select>
                         @error('guru_id')
@@ -75,11 +75,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data_kelas as $kelas)    
+            @foreach ($data_kelas->sortBy('nama_kelas') as $kelas)    
             <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $kelas->nama_kelas }}</td>
-            <td>{{ $kelas->guru->nama_guru }}</td>
+            <td>{{ $kelas->guru->nama_guru }}, {{ $kelas->guru->gelar }}</td>
             <td>{{ $kelas->jumlah_anggota }}</td>
             <td>
                 <button class="badge bg-warning border-0" data-bs-toggle="modal" data-bs-target="#modal-edit-{{ $kelas->id }}">
@@ -123,7 +123,7 @@
                                     <select name="guru_id" class="form-select" aria-label="Default select example">
                                         <option selected>--Pilih Wali Kelas--</option>
                                         @foreach ($data_guru as $guru)
-                                            <option value="{{ $guru->id }}" required @if($guru->id == $kelas->guru->id) selected @endif >{{ $guru->nama_guru }}</option>
+                                            <option value="{{ $guru->id }}" required @if($guru->id == $kelas->guru->id) selected @endif >{{ $guru->nama_guru }}, {{ $guru->gelar }}</option>
                                         @endforeach
                                     </select>
                                     @error('guru_id')

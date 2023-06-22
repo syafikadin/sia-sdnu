@@ -9,6 +9,10 @@ class Mapel extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id',
+    ];
+
     public function pembelajaran()
     {
         return $this->hasMany(Pembelajaran::class);

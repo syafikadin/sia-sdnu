@@ -44,6 +44,23 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
+        $validateData = $request->validate([
+            'nama_kelas' => 'required',
+            'guru_id' => 'required',
+        ]);
+
+        if (!$validateData) {
+            return back()->with('toast_error', $validateData->messages()->all()[0])->withInput();
+        }
+
+        $kelas = new Kelas([
+            'nama_kelas' => $request->nama_kelas,
+            'guru_id' => $request->guru_id,
+        ]);
+
+        $kelas->save($validateData);
+
+        return redirect('/admin/kelas')->with('success', 'Kelas telah ditambahkan');
     }
 
     /**
@@ -76,20 +93,17 @@ class KelasController extends Controller
      */
     public function update(Request $request, Kelas $kela)
     {
-        Validator::make($request->all(), [
-            'nama_kelas' => 'required|min:1|max:30',
+        $rules = [
+            'nama_kelas' => 'required',
             'guru_id' => 'required',
-        ]);
-
-        $kelas = Kelas::findorfail($kela);
-        $data_kelas = [
-            'nama_kelas' => $request->nama_kelas,
-            'guru_id' => $request->guru_id,
         ];
-        $kelas->update($data_kelas);
-        // return back()->with('toast_success', 'Kelas berhasil diedit');
 
-        return redirect('/admin/kelas')->with('success', 'Kelas has been updated');
+        $validateData = $request->validate($rules);
+
+        Kelas::where('id', $kela->id)
+            ->update($validateData);
+
+        return redirect('/admin/kelas')->with('success', 'Data kelas telah dirubah');
     }
 
     /**
@@ -98,8 +112,10 @@ class KelasController extends Controller
      * @param  \App\Models\Kelas  $Kelas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kelas $Kela)
+    public function destroy(Kelas $kela)
     {
-        //
+        Kelas::destroy($kela->id);
+
+        return redirect('/admin/kelas')->with('success', 'Kelas berhasil dihapus');
     }
 }
