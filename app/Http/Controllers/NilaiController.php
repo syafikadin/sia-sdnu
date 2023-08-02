@@ -28,7 +28,7 @@ class NilaiController extends Controller
         $data_penilaian = Pembelajaran::where('guru_id', $guru->id)->orderBy('mapel_id', 'ASC')->get();
 
         foreach ($data_penilaian as $penilaian) {
-            $data_anggota_kelas = Siswa::where('kelas_id', $data_anggota_kelas->id)->get();
+            $data_anggota_kelas = Siswa::where('kelas_id', $penilaian->id)->get();
             $data_nilai = Nilai::where('pembelajaran_id', $penilaian->id)->get();
 
             $penilaian->jumlah_anggota_kelas = count($data_anggota_kelas);
