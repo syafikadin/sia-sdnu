@@ -815,6 +815,54 @@ class DatabaseSeeder extends Seeder
             'guru_id' => '2'
         ]);
 
+        Pembelajaran::create([
+            'kelas_id' => '5',
+            'mapel_id' => '1',
+            'guru_id' => '1'
+        ]);
+
+        Pembelajaran::create([
+            'kelas_id' => '6',
+            'mapel_id' => '2',
+            'guru_id' => '2'
+        ]);
+
+        Pembelajaran::create([
+            'kelas_id' => '7',
+            'mapel_id' => '3',
+            'guru_id' => '1'
+        ]);
+
+        Pembelajaran::create([
+            'kelas_id' => '8',
+            'mapel_id' => '4',
+            'guru_id' => '2'
+        ]);
+
+        Pembelajaran::create([
+            'kelas_id' => '9',
+            'mapel_id' => '1',
+            'guru_id' => '1'
+        ]);
+
+        Pembelajaran::create([
+            'kelas_id' => '10',
+            'mapel_id' => '2',
+            'guru_id' => '2'
+        ]);
+
+        Pembelajaran::create([
+            'kelas_id' => '11',
+            'mapel_id' => '3',
+            'guru_id' => '1'
+        ]);
+
+        Pembelajaran::create([
+            'kelas_id' => '12',
+            'mapel_id' => '4',
+            'guru_id' => '2'
+        ]);
+
         // AnggotaKelas::create([
         //     'siswa_id' => '1',
         //     'kelas_id' => '1'
