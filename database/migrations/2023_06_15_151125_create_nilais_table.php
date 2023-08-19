@@ -17,8 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pembelajaran_id');
             $table->foreignId('siswa_id');
-            $table->integer('nilai_tugas');
-            $table->integer('nilai_ulangan');
+            $table->integer('ko1');
+            $table->integer('ko2');
+            $table->integer('sub1');
+            $table->integer('sub2');
+            $table->integer('uts_uas');
             $table->timestamps();
         });
     }

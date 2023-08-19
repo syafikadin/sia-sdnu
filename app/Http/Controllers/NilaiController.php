@@ -66,12 +66,15 @@ class NilaiController extends Controller
     public function store(Request $request)
     {
         for ($count_siswa = 0; $count_siswa < count($request->siswa_id); $count_siswa++) {
-            if ($request->nilai_tugas[$count_siswa] >= 0 && $request->nilai_tugas[$count_siswa] <= 100 || $request->nilai_ulangan[$count_siswa] >= 0 && $request->nilai_ulangan[$count_siswa] <= 100) {
+            if ($request->ko1[$count_siswa] >= 0 && $request->ko1[$count_siswa] <= 100 || $request->ko2[$count_siswa] >= 0 && $request->ko2[$count_siswa] <= 100 || $request->sub1[$count_siswa] >= 0 && $request->sub1[$count_siswa] <= 100 || $request->sub2[$count_siswa] >= 0 && $request->sub2[$count_siswa] <= 100 || $request->uts_uas[$count_siswa] >= 0 && $request->uts_uas[$count_siswa] <= 100) {
                 $data_nilai = array(
                     'pembelajaran_id'  => $request->pembelajaran_id,
                     'siswa_id'  => $request->siswa_id[$count_siswa],
-                    'nilai_tugas'  => ltrim($request->nilai_tugas[$count_siswa]),
-                    'nilai_ulangan'  => ltrim($request->nilai_ulangan[$count_siswa])
+                    'ko1'  => ltrim($request->ko1[$count_siswa]),
+                    'ko2'  => ltrim($request->ko2[$count_siswa]),
+                    'sub1'  => ltrim($request->sub1[$count_siswa]),
+                    'sub2'  => ltrim($request->sub2[$count_siswa]),
+                    'uts_uas'  => ltrim($request->uts_uas[$count_siswa]),
                 );
                 $data_nilai_siswa[] = $data_nilai;
             } else {
@@ -114,12 +117,15 @@ class NilaiController extends Controller
     public function update(Request $request, Nilai $nilai)
     {
         for ($count_siswa = 0; $count_siswa < count($request->siswa_id); $count_siswa++) {
-            if ($request->nilai_tugas[$count_siswa] >= 0 && $request->nilai_tugas[$count_siswa] <= 100 || $request->nilai_ulangan[$count_siswa] >= 0 && $request->nilai_ulangan[$count_siswa] <= 100) {
+            if ($request->ko1[$count_siswa] >= 0 && $request->ko1[$count_siswa] <= 100 || $request->ko2[$count_siswa] >= 0 && $request->ko2[$count_siswa] <= 100 || $request->sub1[$count_siswa] >= 0 && $request->sub1[$count_siswa] <= 100 || $request->sub2[$count_siswa] >= 0 && $request->sub2[$count_siswa] <= 100 || $request->uts_uas[$count_siswa] >= 0 && $request->uts_uas[$count_siswa] <= 100) {
                 $nilai_sebelum = Nilai::where('pembelajaran_id', $nilai->id)->where('siswa_id', $request->siswa_id[$count_siswa])->first();
 
                 $data_nilai = [
-                    'nilai_tugas'  => $request->nilai_tugas[$count_siswa],
-                    'nilai_ulangan'  => $request->nilai_ulangan[$count_siswa],
+                    'ko1'  => $request->ko1[$count_siswa],
+                    'ko2'  => $request->ko2[$count_siswa],
+                    'sub1'  => $request->sub1[$count_siswa],
+                    'sub2'  => $request->sub2[$count_siswa],
+                    'uts_uas'  => $request->uts_uas[$count_siswa],
                 ];
 
                 Nilai::where('id', $nilai_sebelum->id)->update($data_nilai);

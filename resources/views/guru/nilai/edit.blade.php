@@ -28,8 +28,11 @@
                       <tr>
                         <th class="text-center" style="width: 5%;">No</th>
                         <th class="text-center">Nama Siswa</th>
-                        <th class="text-center">Nilai Tugas</th>
-                        <th class="text-center">Nilai Ulangan</th>
+                        <th class="text-center">Nilai KO1</th>
+                        <th class="text-center">Nilai KO2</th>
+                        <th class="text-center">Nilai SUB1</th>
+                        <th class="text-center">Nilai SUB2</th>
+                        <th class="text-center">UTS UAS</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -39,10 +42,19 @@
                         <td>{{$nilai->siswa->nama_siswa}}</td>
                         <input type="hidden" name="siswa_id[]" value="{{$nilai->siswa_id}}">
                         <td>
-                          <input type="number" class="form-control" name="nilai_tugas[]" value="{{$nilai->nilai_tugas}}" min="0" max="100" required oninvalid="this.setCustomValidity('Nilai harus berisi antara 0 s/d 100')" oninput="setCustomValidity('')">
+                          <input type="number" class="form-control" name="ko1[]" value="{{$nilai->ko1}}" min="0" max="100" required oninvalid="this.setCustomValidity('Nilai harus berisi antara 0 s/d 100')" oninput="setCustomValidity('')">
                         </td>
                         <td>
-                          <input type="number" class="form-control" name="nilai_ulangan[]" value="{{$nilai->nilai_ulangan}}" min="0" max="100" required oninvalid="this.setCustomValidity('Nilai harus berisi antara 0 s/d 100')" oninput="setCustomValidity('')">
+                          <input type="number" class="form-control" name="ko2[]" value="{{$nilai->ko2}}" min="0" max="100" required oninvalid="this.setCustomValidity('Nilai harus berisi antara 0 s/d 100')" oninput="setCustomValidity('')">
+                        </td>
+                        <td>
+                          <input type="number" class="form-control" name="sub1[]" value="{{$nilai->sub1}}" min="0" max="100" required oninvalid="this.setCustomValidity('Nilai harus berisi antara 0 s/d 100')" oninput="setCustomValidity('')">
+                        </td>
+                        <td>
+                          <input type="number" class="form-control" name="sub2[]" value="{{$nilai->sub2}}" min="0" max="100" required oninvalid="this.setCustomValidity('Nilai harus berisi antara 0 s/d 100')" oninput="setCustomValidity('')">
+                        </td>
+                        <td>
+                          <input type="number" class="form-control" name="uts_uas[]" value="{{$nilai->uts_uas}}" min="0" max="100" required oninvalid="this.setCustomValidity('Nilai harus berisi antara 0 s/d 100')" oninput="setCustomValidity('')">
                         </td>
                       </tr>
                       @endforeach
