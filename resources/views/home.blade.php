@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-  <h1>Halaman Home</h1>
+  <img class="img-fluid" src="/img/5.webp" alt="" width="100%">
+
+  @include('partials.footer')
 @endsection
