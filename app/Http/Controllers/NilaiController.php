@@ -114,21 +114,21 @@ class NilaiController extends Controller
      * @param  \App\Models\Nilai  $nilai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Nilai $nilai)
+    public function update(Request $request, $id)
     {
-        for ($count_siswa = 0; $count_siswa < count($request->siswa_id); $count_siswa++) {
-            if ($request->ko1[$count_siswa] >= 0 && $request->ko1[$count_siswa] <= 100 || $request->ko2[$count_siswa] >= 0 && $request->ko2[$count_siswa] <= 100 || $request->sub1[$count_siswa] >= 0 && $request->sub1[$count_siswa] <= 100 || $request->sub2[$count_siswa] >= 0 && $request->sub2[$count_siswa] <= 100 || $request->uts_uas[$count_siswa] >= 0 && $request->uts_uas[$count_siswa] <= 100) {
-                $nilai_sebelum = Nilai::where('pembelajaran_id', $nilai->id)->where('siswa_id', $request->siswa_id[$count_siswa])->first();
+        for ($cound_siswa = 0; $cound_siswa < count($request->siswa_id); $cound_siswa++) {
+
+            if ($request->ko1[$cound_siswa] >= 0 && $request->ko1[$cound_siswa] <= 100 || $request->ko2[$cound_siswa] >= 0 && $request->ko2[$cound_siswa] <= 100 || $request->sub1[$cound_siswa] >= 0 && $request->sub1[$cound_siswa] <= 100 || $request->sub2[$cound_siswa] >= 0 && $request->sub2[$cound_siswa] <= 100 || $request->uts_uas[$cound_siswa] >= 0 && $request->uts_uas[$cound_siswa] <= 100) {
+                $nilai = Nilai::where('pembelajaran_id', $id)->where('siswa_id', $request->siswa_id[$cound_siswa])->first();
 
                 $data_nilai = [
-                    'ko1'  => $request->ko1[$count_siswa],
-                    'ko2'  => $request->ko2[$count_siswa],
-                    'sub1'  => $request->sub1[$count_siswa],
-                    'sub2'  => $request->sub2[$count_siswa],
-                    'uts_uas'  => $request->uts_uas[$count_siswa],
+                    'ko1'  => ltrim($request->ko1[$cound_siswa]),
+                    'ko2'  => ltrim($request->ko2[$cound_siswa]),
+                    'sub1'  => ltrim($request->sub1[$cound_siswa]),
+                    'sub2'  => ltrim($request->sub2[$cound_siswa]),
+                    'uts_uas'  => ltrim($request->uts_uas[$cound_siswa]),
                 ];
-
-                Nilai::where('id', $nilai_sebelum->id)->update($data_nilai);
+                Nilai::where('id', $nilai->id)->update($data_nilai);
             } else {
                 return back()->with('toast_error', 'Nilai harus berisi antara 0 s/d 100');
             }
