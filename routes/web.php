@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use Illuminate\Support\Facades\Route;
@@ -49,8 +50,14 @@ Route::group(['middleware' => 'guru'], function () {
     Route::get('/guru', function () {
         return view('guru.index');
     })->middleware('guru');
+    Route::get('/guru', [DashboardController::class, 'index']);
 
     Route::resource('/guru/nilai', NilaiController::class);
+
+    // Import Nilai
+    // Route::get('nilai/exportnilai', 'NilaiController@format_import')->name('exportnilai');
+    // Route::post('nilai/exportnilai', 'NilaiController@format_import')->name('exportnilai');
+    Route::get('nilai/exportnilai', 'NilaiController@nilaiexport')->name('exportnilai');
 });
 // End Route Group Guru
 

@@ -10,6 +10,9 @@ use App\Models\Kelas;
 use App\Models\Pembelajaran;
 use App\Models\Siswa;
 use Illuminate\Support\Facades\Auth;
+use App\Exports\FormatImportNilai;
+use App\Exports\FormatImportNilaiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class NilaiController extends Controller
 {
@@ -146,4 +149,32 @@ class NilaiController extends Controller
     {
         //
     }
+
+    public function nilaiexport()
+    {
+        return Excel::download(new FormatImportNilai, 'nilai.xlsx');
+    }
+
+    // public function format_import(Request $request)
+    // {
+    //     $pembelajaran = Pembelajaran::findorfail($request->pembelajaran_id);
+    //     $cek_anggota = Siswa::where('kelas_id', $pembelajaran->id)->get();
+    //     if (count($cek_anggota) == 0) {
+    //         return back()->with('toast_error', 'Belum ditemukan data anggota kelas');
+    //     } else {
+    //         $filename = 'format_import_nilai ' . $pembelajaran->mapel->ringkasan . ' ' . $pembelajaran->kelas->nama_kelas . '.xls';
+    //         $id = $pembelajaran->id;
+    //         return Excel::download(new FormatImportNilaiExport($id), $filename);
+    //     }
+    // }
+
+    // public function import(Request $request)
+    // {
+    //     try {
+    //         Excel::import(new NilaiUtsUasKTSPImport, $request->file('file_import'));
+    //         return back()->with('toast_success', 'Data nilai UTS UAS berhasil diimport');
+    //     } catch (\Throwable $th) {
+    //         return back()->with('toast_error', 'Maaf, format data tidak sesuai');
+    //     }
+    // }
 }
