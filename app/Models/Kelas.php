@@ -22,4 +22,9 @@ class Kelas extends Model
     {
         return $this->hasMany(Pembelajaran::class);
     }
+
+    public function tapel()
+    {
+        return $this->belongsTo(Tapel::class);
+    }
 }

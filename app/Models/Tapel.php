@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mapel extends Model
+class Tapel extends Model
 {
     use HasFactory;
 
@@ -13,13 +13,13 @@ class Mapel extends Model
         'id',
     ];
 
-    public function pembelajaran()
+    public function kelas()
     {
-        return $this->hasMany(Pembelajaran::class);
+        return $this->hasMany(Kelas::class);
     }
 
-    public function tapel()
+    public function mapel()
     {
-        return $this->belongsTo(Tapel::class);
+        return $this->hasMany(Mapel::class);
     }
 }
