@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CetakRaportController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
@@ -42,6 +43,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/admin/mapel', MapelController::class);
     Route::resource('/admin/kelas', KelasController::class);
     Route::resource('/admin/pembelajaran', PembelajaranController::class);
+    Route::resource('/admin/raport', CetakRaportController::class, ['uses' => ['index', 'store', 'show']]);
 });
 // End Route Group Admin
 

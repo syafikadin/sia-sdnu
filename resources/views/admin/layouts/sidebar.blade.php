@@ -46,6 +46,12 @@
                 Nilai
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/raport*') ? 'active' : '' }}" aria-current="page" href="/admin/raport">
+                <span data-feather="user" class="align-text-bottom"></span>
+                Cetak Raport
+                </a>
+            </li>
             {{-- <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/rapors*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
                 <span data-feather="user" class="align-text-bottom"></span>
