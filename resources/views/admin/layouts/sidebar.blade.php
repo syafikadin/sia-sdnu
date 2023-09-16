@@ -41,6 +41,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/tapel*') ? 'active' : '' }}" aria-current="page" href="/admin/tapel">
+                <span data-feather="user" class="align-text-bottom"></span>
+                Data Tahun Pelajaran
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/nilai*') ? 'active' : '' }}" aria-current="page" href="/admin/nilai">
                 <span data-feather="user" class="align-text-bottom"></span>
                 Nilai

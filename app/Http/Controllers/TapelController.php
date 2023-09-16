@@ -14,7 +14,9 @@ class TapelController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.tapel.index', [
+            'tapels' => Tapel::all(),
+        ]);
     }
 
     /**
