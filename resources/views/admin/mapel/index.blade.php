@@ -69,7 +69,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($mapels as $mapel)    
+            @foreach ($data_mapel as $mapel)    
             <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $mapel->nama_mapel }}</td>

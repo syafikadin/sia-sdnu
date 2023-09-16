@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mapel;
+use App\Models\Tapel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,9 +16,10 @@ class MapelController extends Controller
      */
     public function index()
     {
-        return view('admin.mapel.index', [
-            'mapels' => Mapel::all()
-        ]);
+        $title = 'Mata Pelajaran';
+        $tapel = Tapel::findorfail(session()->get('tapel_id'));
+        $data_mapel = Mapel::where('tapel_id', $tapel->id)->orderBy('nama_mapel', 'ASC')->get();
+        return view('admin.mapel.index', compact('title', 'tapel', 'data_mapel'));
     }
 
     /**

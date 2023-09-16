@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Siswa;
 use App\Models\Tapel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TapelController extends Controller
 {
@@ -20,16 +22,6 @@ class TapelController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -37,51 +29,20 @@ class TapelController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Tapel  $tapel
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tapel $tapel)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Tapel  $tapel
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Tapel $tapel)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tapel  $tapel
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Tapel $tapel)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Tapel  $tapel
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Tapel $tapel)
-    {
-        //
+        $validator = Validator::make($request->all(), [
+            'tahun_pelajaran' => 'required|min:9|max:9',
+            'semester' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return back()->with('addError', 'Harap isi dengan sesuai');
+        } else {
+            $tapel = new Tapel([
+                'tahun_pelajaran' => $request->tahun_pelajaran,
+                'semester' => $request->semester,
+            ]);
+            $tapel->save();
+            Siswa::query()->update(['kelas_id' => null]);
+            return back()->with('addSuccess', 'Tahun Pelajaran berhasil ditambahkan');
+        }
     }
 }
