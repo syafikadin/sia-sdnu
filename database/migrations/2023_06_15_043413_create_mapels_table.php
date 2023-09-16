@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('mapels', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('tapel_id')->unsigned();
             $table->string('nama_mapel');
             $table->string('ringkasan');
             $table->timestamps();

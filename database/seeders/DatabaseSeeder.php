@@ -12,6 +12,7 @@ use App\Models\Mapel;
 use App\Models\Nilai;
 use App\Models\Siswa;
 use App\Models\Pembelajaran;
+use App\Models\Tapel;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -772,21 +773,25 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Mapel::create([
+            'tapel_id' => '1',
             'nama_mapel' => 'Bahasa Indonesia',
             'ringkasan' => 'BI'
         ]);
 
         Mapel::create([
+            'tapel_id' => '1',
             'nama_mapel' => 'Matematika',
             'ringkasan' => 'MTK'
         ]);
 
         Mapel::create([
+            'tapel_id' => '1',
             'nama_mapel' => 'Bahasa Inggris',
             'ringkasan' => 'BING'
         ]);
 
         Mapel::create([
+            'tapel_id' => '1',
             'nama_mapel' => 'Ilmu Pengetahuan Alam',
             'ringkasan' => 'IPA'
         ]);
@@ -861,6 +866,11 @@ class DatabaseSeeder extends Seeder
             'kelas_id' => '12',
             'mapel_id' => '4',
             'guru_id' => '2'
+        ]);
+
+        Tapel::create([
+            'tahun_pelajaran' => '2020/2021',
+            'semester' => '1',
         ]);
 
         // AnggotaKelas::create([
