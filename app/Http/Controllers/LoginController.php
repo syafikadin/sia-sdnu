@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        $data_tapel = Tapel::all();
+        $data_tapel = Tapel::orderBy('id', 'DESC')->get();
         return view('login.index', [
             'title' => 'Login',
         ], compact('data_tapel'));
