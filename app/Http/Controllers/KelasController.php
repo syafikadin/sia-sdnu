@@ -19,7 +19,7 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $title = 'Kelas';
+        $title = 'Data Kelas';
         $tapel = Tapel::findorfail(session()->get('tapel_id'));
         $data_mapel = Mapel::where('tapel_id', $tapel->id)->get();
         if (count($data_mapel) == 0) {
