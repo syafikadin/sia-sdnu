@@ -12,6 +12,13 @@
       </div>
     @endif
 
+    @if (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <!-- Button Trigger Modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-tambah">
         Tambah Siswa
@@ -116,7 +123,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($siswas->sortBy('NIS') as $siswa)    
+            @foreach ($data_siswa->sortBy('NIS') as $siswa)    
             <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $siswa->nis }}</td>

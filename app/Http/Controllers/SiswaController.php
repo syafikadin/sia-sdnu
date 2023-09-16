@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelas;
 use App\Models\Siswa;
+use App\Models\Tapel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -17,10 +18,18 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        return view('admin.siswa.index', [
-            'siswas' => Siswa::all(),
-            'data_kelas' => Kelas::all()
-        ]);
+        $title = 'Data Siswa';
+        $tapel = Tapel::findorfail(session()->get('tapel_id'));
+        $jumlah_kelas = Kelas::where('tapel_id', $tapel->id)->count();
+
+        if ($jumlah_kelas == 0) {
+            return redirect('admin/kelas')->with('error', 'Mohon Isikan Data Kelas');
+            // return redirect('/admin/kelas')->with('success', 'Data siswa telah dirubah');
+        } else {
+            $data_kelas = Kelas::all();
+            $data_siswa = Siswa::all();
+            return view('admin.siswa.index', compact('title', 'data_siswa', 'data_kelas'));
+        }
     }
 
     /**

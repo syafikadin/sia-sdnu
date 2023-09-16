@@ -713,61 +713,73 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '1',
             'nama_kelas' => '1A'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '2',
             'nama_kelas' => '1B'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '1',
             'nama_kelas' => '2A'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '2',
             'nama_kelas' => '2B'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '1',
             'nama_kelas' => '3A'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '2',
             'nama_kelas' => '3B'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '1',
             'nama_kelas' => '4A'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '2',
             'nama_kelas' => '4B'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '1',
             'nama_kelas' => '5A'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '1',
             'nama_kelas' => '5B'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '1',
             'nama_kelas' => '6A'
         ]);
 
         Kelas::create([
+            'tapel_id' => '1',
             'guru_id' => '2',
             'nama_kelas' => '6B'
         ]);
