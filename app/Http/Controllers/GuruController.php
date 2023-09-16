@@ -15,9 +15,10 @@ class GuruController extends Controller
      */
     public function index()
     {
+        $title = 'Data Guru';
         return view('admin.guru.index', [
             'gurus' => Guru::all()
-        ]);
+        ], compact('title'));
     }
 
     /**
