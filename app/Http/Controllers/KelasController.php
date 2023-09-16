@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Guru;
 use App\Models\Kelas;
+use App\Models\Mapel;
 use App\Models\Siswa;
+use App\Models\Tapel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,11 +19,17 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $data_guru = Guru::all();
-        $data_kelas = Kelas::all();
-        foreach ($data_kelas as $kelas) {
-            $jumlah_anggota = Siswa::where('kelas_id', $kelas->id)->count();
-            $kelas->jumlah_anggota = $jumlah_anggota;
+        $title = 'Kelas';
+        $tapel = Tapel::findorfail(session()->get('tapel_id'));
+        $data_mapel = Mapel::where('tapel_id', $tapel->id)->get();
+        if (count($data_mapel) == 0) {
+        } else {
+            $data_guru = Guru::orderBy('nama_guru', 'ASC')->get();
+            $data_kelas = Kelas::where('tapel_id', $tapel->id)->get();
+            foreach ($data_kelas as $kelas) {
+                $jumlah_anggota = Siswa::where('kelas_id', $kelas->id)->count();
+                $kelas->jumlah_anggota = $jumlah_anggota;
+            }
         }
         return view('admin.kelas.index', compact('data_kelas', 'data_guru'));
     }
