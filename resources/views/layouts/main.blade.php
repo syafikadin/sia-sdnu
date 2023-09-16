@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="assets/dist/js/adminlte.min.js"></script>
+
     {{-- Trix CSS --}}
     {{-- <link rel="stylesheet" type="text/css" href="/css/trix.css">
     <script type="text/javascript" src="js/trix.js"></script> --}}
