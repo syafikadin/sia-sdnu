@@ -16,9 +16,10 @@ class TapelController extends Controller
      */
     public function index()
     {
-        return view('admin.tapel.index', [
-            'tapels' => Tapel::all(),
-        ]);
+        $title = 'Data Tahun Pelajaran';
+        $tapels = Tapel::all();
+
+        return view('admin.tapel.index', compact('title', 'tapels'));
     }
 
     /**

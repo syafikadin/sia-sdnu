@@ -31,7 +31,7 @@ class KelasController extends Controller
                 $kelas->jumlah_anggota = $jumlah_anggota;
             }
         }
-        return view('admin.kelas.index', compact('data_kelas', 'data_guru'));
+        return view('admin.kelas.index', compact('title', 'title', 'data_kelas', 'data_guru'));
     }
 
     /**

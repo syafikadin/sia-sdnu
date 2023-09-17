@@ -15,9 +15,9 @@ class PembelajaranController extends Controller
      */
     public function index()
     {
-        return view('admin.pembelajaran.index', [
-            'pembelajarans' => Pembelajaran::all()
-        ]);
+        $title = 'Data Pembelajaran';
+        $pembelajarans = Pembelajaran::all();
+        return view('admin.pembelajaran.index', compact('title', 'pembelajarans'));
     }
 
     /**

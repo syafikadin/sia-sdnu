@@ -38,6 +38,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin', function () {
         return view('admin.index');
     });
+    Route::get('/admin', [DashboardController::class, 'index']);
 
     Route::resource('/admin/guru', GuruController::class);
     Route::resource('/admin/siswa', SiswaController::class);
