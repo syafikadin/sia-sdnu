@@ -12,6 +12,7 @@ use App\Models\Mapel;
 use App\Models\Nilai;
 use App\Models\Siswa;
 use App\Models\Pembelajaran;
+use App\Models\Sekolah;
 use App\Models\Tapel;
 use Illuminate\Database\Seeder;
 
@@ -24,6 +25,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        Sekolah::create([
+            'nama_sekolah' => 'SDNU Kepanjen',
+            'npsn' => '20537316',
+            'nss' => '104051821044',
+            'kode_pos' => '65163',
+            'nomor_telpon' => '0341 - 396408',
+            'alamat' => 'Jl. Sultan Agung 71 Kepanjen Malang',
+            'website' => 'http://sia-sdnu.sch.id',
+            'email' => 'sdnu@gmail.com',
+            'kepala_sekolah' => 'AINIA ROSYIDAH, S.Pd',
+        ]);
         // role
         // 1 admin
         // 2 guru
