@@ -41,7 +41,7 @@
                         <th class="text-center">NIS</th>
                         <th class="text-center">Nama Siswa</th>
                         <th class="text-center">L/P</th>
-                        <th class="text-center">Raport Tengah Semester</th>
+                        <th class="text-center">Raport</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -51,7 +51,7 @@
                       <tr>
                         <input type="hidden" name="siswa_id[]" value="{{$anggota_kelas->id}}">
                         <td class="text-center">{{$no}}</td>
-                        <td class="text-center">{{$anggota_kelas->id}}</td>
+                        <td class="text-center">{{$anggota_kelas->nis}}</td>
                         <td>{{$anggota_kelas->nama_siswa}}</td>
                         <td class="text-center">{{$anggota_kelas->jenis_kelamin == 0 ? 'Laki - laki' : 'Perempuan'}}</td>
                         <td class="text-center">

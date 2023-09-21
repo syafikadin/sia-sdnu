@@ -34,16 +34,6 @@
                 </div>
   
                 <div class="table-responsive">
-                  <table class="table table-bordered table-striped table-hover">
-                    <thead class="bg-info">
-                      <tr>
-                        <th class="text-center">No</th>
-                        <th class="text-center">NIS</th>
-                        <th class="text-center">Nama Siswa</th>
-                        <th class="text-center">L/P</th>
-                        <th class="text-center">Raport Tengah Semester</th>
-                      </tr>
-                    </thead>
                     {{-- <tbody>
                       <?php $no = 0; ?>
                       @foreach($data_anggota_kelas->sortBy('siswa.nama_siswa') as $anggota_kelas)

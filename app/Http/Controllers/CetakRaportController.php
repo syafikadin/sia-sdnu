@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\Mapel;
+use App\Models\Nilai;
 use App\Models\Pembelajaran;
+use App\Models\Sekolah;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use PDF;
 
 class CetakRaportController extends Controller
 {
@@ -16,10 +20,11 @@ class CetakRaportController extends Controller
      */
     public function index()
     {
+        $title = 'Cetak Raport';
         $data_kelas = Kelas::all();
         return view('admin.raport.setClass', [
             'title' => 'Cetak Raport'
-        ], compact('data_kelas'));
+        ], compact('data_kelas', 'title'));
     }
 
     /**
@@ -40,13 +45,15 @@ class CetakRaportController extends Controller
      */
     public function store(Request $request)
     {
+        $title = 'Cetak Raport';
+
         $kelas = Kelas::findorfail($request->kelas_id);
 
         $data_kelas = Kelas::get();
 
         $data_anggota_kelas = Siswa::where('kelas_id', $kelas->id)->get();
 
-        return view('admin.raport.index', compact('kelas', 'data_kelas', 'data_anggota_kelas',));
+        return view('admin.raport.index', compact('title', 'kelas', 'data_kelas', 'data_anggota_kelas',));
     }
 
     /**
@@ -55,9 +62,37 @@ class CetakRaportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $title = 'Raport PTS';
+
+        $sekolah = Sekolah::first();
+
+        $anggota_kelas = Siswa::findorfail($id);
+
+        $data_id_mapel = Mapel::where('tapel_id', session()->get('tapel_id'))->get('id');
+
+        $data_pembelajaran = Pembelajaran::where('kelas_id', $anggota_kelas->kelas->id)->get();
+
+        // dd($data_pembelajaran);
+
+        foreach ($data_pembelajaran as $pembelajaran) {
+            $nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->first();
+            if (is_null($nilai)) {
+                $pembelajaran->nilai_ko1 = 0;
+                $pembelajaran->nilai_ko2 = 0;
+                $pembelajaran->nilai_sub1 = 0;
+                $pembelajaran->nilai_sub2 = 0;
+            } else {
+                $pembelajaran->nilai_ko1 = $nilai->ko1;
+                $pembelajaran->nilai_ko2 = $nilai->ko2;
+                $pembelajaran->nilai_sub1 = $nilai->sub1;
+                $pembelajaran->nilai_sub2 = $nilai->sub2;
+            }
+        }
+
+        $raport = PDF::loadview('admin.raport.raport', compact('title', 'sekolah', 'anggota_kelas', 'data_id_mapel', 'data_pembelajaran'));
+        return $raport->stream('RAPORT ' . $anggota_kelas->nama_siswa . ' (' . $anggota_kelas->kelas->nama_kelas . ').pdf');
     }
 
     /**

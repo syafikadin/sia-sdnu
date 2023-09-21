@@ -212,7 +212,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
         'Toastr' => Brian2694\Toastr\Facades\Toastr::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ])->toArray(),
