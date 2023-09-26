@@ -8,6 +8,7 @@ use App\Models\Nilai;
 use App\Models\Pembelajaran;
 use App\Models\Sekolah;
 use App\Models\Siswa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -49,6 +50,8 @@ class CetakRaportController extends Controller
 
         $kelas = Kelas::findorfail($request->kelas_id);
 
+        // dd($kelas);
+
         $data_kelas = Kelas::get();
 
         $data_anggota_kelas = Siswa::where('kelas_id', $kelas->id)->get();
@@ -70,28 +73,46 @@ class CetakRaportController extends Controller
 
         $anggota_kelas = Siswa::findorfail($id);
 
+        $kelas = Kelas::where('id', $anggota_kelas->kelas_id)->first();
+
+        $total_siswa = count(Siswa::where('kelas_id', $kelas->id)->get());
+
         $data_id_mapel = Mapel::where('tapel_id', session()->get('tapel_id'))->get('id');
 
         $data_pembelajaran = Pembelajaran::where('kelas_id', $anggota_kelas->kelas->id)->get();
 
         // dd($data_pembelajaran);
 
+        $date = Carbon::now();
+        $dateFormatted = $date->format('j F Y');
+
+        $rata_kelas = 0;
+
+        // Mencari rata-rata kelas
+        foreach ($data_pembelajaran as $pembelajaran) {
+            $nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->get();
+
+            $total_nilai_kelas = 0; // Inisialisasi total nilai kelas
+
+            foreach ($nilai as $item_nilai) {
+                $total_nilai_kelas += $item_nilai->ko1;
+            }
+
+            $jumlah_siswa = count($nilai); // Jumlah siswa dalam kelas
+            $pembelajaran->rata_kelas = $total_nilai_kelas / $jumlah_siswa;
+        }
+
+        // Nilai Raport per mapel
         foreach ($data_pembelajaran as $pembelajaran) {
             $nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->first();
             if (is_null($nilai)) {
                 $pembelajaran->nilai_ko1 = 0;
-                $pembelajaran->nilai_ko2 = 0;
-                $pembelajaran->nilai_sub1 = 0;
-                $pembelajaran->nilai_sub2 = 0;
             } else {
                 $pembelajaran->nilai_ko1 = $nilai->ko1;
-                $pembelajaran->nilai_ko2 = $nilai->ko2;
-                $pembelajaran->nilai_sub1 = $nilai->sub1;
-                $pembelajaran->nilai_sub2 = $nilai->sub2;
             }
         }
 
-        $raport = PDF::loadview('admin.raport.raport', compact('title', 'sekolah', 'anggota_kelas', 'data_id_mapel', 'data_pembelajaran'));
+        $raport = PDF::loadview('admin.raport.raport', compact('title', 'sekolah', 'anggota_kelas', 'data_id_mapel', 'data_pembelajaran', 'dateFormatted', 'total_siswa'));
         return $raport->stream('RAPORT ' . $anggota_kelas->nama_siswa . ' (' . $anggota_kelas->kelas->nama_kelas . ').pdf');
     }
 
