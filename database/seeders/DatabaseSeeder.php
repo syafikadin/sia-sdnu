@@ -828,6 +828,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Pembelajaran::create([
+            'kelas_id' => '1',
+            'mapel_id' => '2',
+            'guru_id' => '1'
+        ]);
+
+        Pembelajaran::create([
             'kelas_id' => '2',
             'mapel_id' => '2',
             'guru_id' => '2'
