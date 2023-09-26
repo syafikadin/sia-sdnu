@@ -99,7 +99,11 @@ class CetakRaportController extends Controller
             }
 
             $jumlah_siswa = count($nilai); // Jumlah siswa dalam kelas
-            $pembelajaran->rata_kelas = $total_nilai_kelas / $jumlah_siswa;
+            if ($jumlah_siswa > 0) {
+                $pembelajaran->rata_kelas = number_format($total_nilai_kelas / $jumlah_siswa, 1);
+            } else {
+                $pembelajaran->rata_kelas = 0;
+            }
         }
 
         // Nilai Raport per mapel

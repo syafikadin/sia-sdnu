@@ -131,7 +131,7 @@
 
       <div style="padding-left:60%; padding-top:1rem; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;">
         Kepanjen, {{ $dateFormatted }}<br>
-        Kepala Sekolah, <br><br><br><br>
+        Kepala Sekolah, <br><br><br><br><br>
         <b><u>{{ $sekolah->kepala_sekolah }}</u></b><br>
         NIP. {{ $sekolah->nip_kepala_sekolah ? $sekolah->nip_kepala_sekolah : '' }}
       </div>
