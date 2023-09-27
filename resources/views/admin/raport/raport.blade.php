@@ -108,8 +108,8 @@
           </tr>
 
           <tr class="nilai">
-            <td colspan="2">Prestasi / rangking dari {{ $total_siswa }} anak</td>
-            <td colspan="2">Ke ........</td>
+            <td colspan="2">Prestasi / ranking dari {{ $total_siswa }} anak</td>
+            <td colspan="2">Ke ...</td>
           </tr>
 
           <tr>

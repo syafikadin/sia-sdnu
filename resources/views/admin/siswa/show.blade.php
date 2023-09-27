@@ -25,7 +25,7 @@
             <div class="col-lg-8 ms-4">
                 <h2 class="mb-4">{{ $siswa->nama_siswa }}</h2>
                 <p>NIS : {{ $siswa->nis }}</p>
-                <p>Kelas : {{ $siswa->kelas->nama_kelas }}</p>
+                <p>Kelas : {{ $siswa->kelas ? $siswa->kelas->nama_kelas : 'Siswa Belum Masuk Kelas' }}</p>
                 <p>Jenis Kelamin : {{ ($siswa->jenis_kelamin == 0) ? 'Laki-laki' : 'Perempuan' }}</p>
                 <p>Tanggal Lahir : {{ $siswa->tanggal_lahir }}</p>
                 <p>Alamat : {{ $siswa->alamat }}</p>

@@ -30,20 +30,20 @@ class TapelController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+
+        $validateData = $request->validate([
             'tahun_pelajaran' => 'required|min:9|max:9',
             'semester' => 'required',
         ]);
-        if ($validator->fails()) {
-            return back()->with('addError', 'Harap isi dengan sesuai');
-        } else {
-            $tapel = new Tapel([
-                'tahun_pelajaran' => $request->tahun_pelajaran,
-                'semester' => $request->semester,
-            ]);
-            $tapel->save();
-            Siswa::query()->update(['kelas_id' => null]);
-            return back()->with('addSuccess', 'Tahun Pelajaran berhasil ditambahkan');
-        }
+
+        $tapel = new Tapel([
+            'tahun_pelajaran' => $request->tahun_pelajaran,
+            'semester' => $request->semester,
+        ]);
+
+        $tapel->save($validateData);
+        Siswa::query()->update(['kelas_id' => null]);
+
+        return redirect('/admin/tapel')->with('success', 'Tahun Pelajaran telah ditambahkan');
     }
 }

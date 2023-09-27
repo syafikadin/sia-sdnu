@@ -94,9 +94,10 @@ class SiswaController extends Controller
      */
     public function show(Siswa $siswa)
     {
+        $title = 'Data Detail Siswa';
         return view('admin.siswa.show', [
             'siswa' => $siswa
-        ]);
+        ], compact('title'));
     }
 
     /**

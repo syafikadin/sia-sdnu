@@ -129,7 +129,7 @@
             <td>{{ $siswa->nis }}</td>
             <td>{{ $siswa->nama_siswa }}</td>
             <td>{{ ($siswa->jenis_kelamin == 0) ? 'L' : 'P' }}</td>
-            <td>{{ $siswa->kelas->nama_kelas }}</td>
+            <td>{{ $siswa->kelas ? $siswa->kelas->nama_kelas : 'Siswa Belum Masuk Kelas' }}</td>
             <td>{{ $siswa->tanggal_lahir }}</td>
             <td>
                 <a href="/admin/siswa/{{ $siswa->id }}" class="badge bg-info"><span data-feather="info" class="align-text-bottom"></span></a>
@@ -185,7 +185,7 @@
                                     <select name="kelas_id" class="form-select" aria-label="Default select example">
                                         <option selected>--Pilih Kelas--</option>
                                         @foreach ($data_kelas as $kelas)
-                                            <option value="{{ $kelas->id }}" required @if($kelas->id == $siswa->kelas->id) selected @endif >{{ $kelas->nama_kelas }}</option>
+                                            <option value="{{ $kelas->id }}" @if($kelas->id == $siswa->kelas_id) selected @endif>{{ $kelas->nama_kelas }}</option>
                                         @endforeach
                                     </select>
                                 </div>

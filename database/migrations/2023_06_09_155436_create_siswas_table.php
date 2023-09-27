@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('kelas_id');
+            $table->foreignId('kelas_id')->nullable();
             $table->string('nis')->unique();
             $table->string('nama_siswa');
             $table->boolean('jenis_kelamin');
