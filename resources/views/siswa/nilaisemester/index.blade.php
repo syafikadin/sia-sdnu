@@ -16,7 +16,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title"><i class="fas fa-book-reader"></i> {{$title}}</h3>
+                  <h3 class="card-title">{{$title}}</h3>
                 </div>
                 <div class="card-body">
                   <div class="callout callout-info">
@@ -24,8 +24,14 @@
                       <div class="col-sm-3">
                         Nama Lengkap
                       </div>
-                      <div class="col-sm-9">
+                      <div class="col-sm-7">
                         : {{$siswa->nama_siswa}}
+                      </div>
+                      <div class="col-sm-2">
+                        <form action="{{ route('nilaisemester.show', $anggota_kelas->id) }}" target="_black" method="GET">
+                          @csrf
+                          <button type="submit" class="btn btn-info"><span class="nav-icon fas fa-print me-1"></span> Cetak Raport</button>
+                        </form>
                       </div>
                     </div>
                     <div class="form-group row">
