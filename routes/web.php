@@ -7,6 +7,7 @@ use App\Http\Controllers\KelasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\NilaiAkhirSemesterController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PembelajaranController;
 use App\Http\Controllers\SiswaController;
@@ -73,5 +74,7 @@ Route::group(['middleware' => 'siswa'], function () {
     Route::get('/siswa', function () {
         return view('siswa.index');
     })->middleware('siswa');
+
+    Route::resource('/siswa/nilaisemester', NilaiAkhirSemesterController::class);
 });
 // End Route Group Siswa

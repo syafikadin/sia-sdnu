@@ -5,45 +5,15 @@
         </h6>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin') ? 'active' : '' }}" aria-current="page" href="/admin">
+                <a class="nav-link {{ Request::is('siswa') ? 'active' : '' }}" aria-current="page" href="/siswa">
                 <span data-feather="home" class="align-text-bottom"></span>
                 Dashboard
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/guru*') ? 'active' : '' }}" aria-current="page" href="/admin/guru">
+                <a class="nav-link {{ Request::is('siswa/nilaisemester*') ? 'active' : '' }}" aria-current="page" href="/siswa/nilaisemester">
                 <span data-feather="user" class="align-text-bottom"></span>
-                Data Guru
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/students*') ? 'active' : '' }}" aria-current="page" href="/admin/students">
-                <span data-feather="users" class="align-text-bottom"></span>
-                Data Siswa
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/jadwals*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
-                <span data-feather="user" class="align-text-bottom"></span>
-                Jadwal Pelajaran
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/rapors*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
-                <span data-feather="user" class="align-text-bottom"></span>
-                Rapor
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/penilaians*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
-                <span data-feather="user" class="align-text-bottom"></span>
-                Penilaian
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/beritas*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
-                <span data-feather="user" class="align-text-bottom"></span>
-                Berita Sekolah
+                Nilai Akhir Semester
                 </a>
             </li>
         </ul>
