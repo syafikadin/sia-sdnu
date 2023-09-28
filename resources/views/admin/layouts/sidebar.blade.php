@@ -6,76 +6,64 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin') ? 'active' : '' }}" aria-current="page" href="/admin">
-                <span data-feather="home" class="align-text-bottom"></span>
+                <span class="nav-icon fas fa-tachometer-alt me-2"></span>
                 Dashboard
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/user') ? 'active' : '' }}" aria-current="page" href="/admin/user">
+                <span class="nav-icon fas fa-user-friends me-2"></span>
+                Data User
+                </a>
+            </li>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                <span>Data Master</span>
+            </h6>
+            <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/guru*') ? 'active' : '' }}" aria-current="page" href="/admin/guru">
-                <span data-feather="user" class="align-text-bottom"></span>
+                <span class="fas fa-user-tie nav-icon me-2"></span>
                 Data Guru
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/siswa*') ? 'active' : '' }}" aria-current="page" href="/admin/siswa">
-                <span data-feather="users" class="align-text-bottom"></span>
+                <span class="fas fa-users nav-icon me-2"></span>
                 Data Siswa
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/kelas*') ? 'active' : '' }}" aria-current="page" href="/admin/kelas">
-                <span data-feather="users" class="align-text-bottom"></span>
+                <span class="fas fa-layer-group nav-icon me-2"></span>
                 Data Kelas
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/mapel*') ? 'active' : '' }}" aria-current="page" href="/admin/mapel">
-                <span data-feather="user" class="align-text-bottom"></span>
+                <span class="fas fa-book nav-icon me-2"></span>
                 Data Mata Pelajaran
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/pembelajaran*') ? 'active' : '' }}" aria-current="page" href="/admin/pembelajaran">
-                <span data-feather="user" class="align-text-bottom"></span>
+                <span class="fas fa-book-open nav-icon me-2"></span>
                 Data Pembelajaran
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/tapel*') ? 'active' : '' }}" aria-current="page" href="/admin/tapel">
-                <span data-feather="user" class="align-text-bottom"></span>
+                <span class="fas fa-calendar-week nav-icon me-2"></span>
                 Data Tahun Pelajaran
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/nilai*') ? 'active' : '' }}" aria-current="page" href="/admin/nilai">
-                <span data-feather="user" class="align-text-bottom"></span>
-                Nilai
-                </a>
-            </li>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                <span>Raport</span>
+            </h6>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/raport*') ? 'active' : '' }}" aria-current="page" href="/admin/raport">
-                <span data-feather="user" class="align-text-bottom"></span>
+                <span class="nav-icon fas fa-print me-2"></span>
                 Cetak Raport
                 </a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/rapors*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
-                <span data-feather="user" class="align-text-bottom"></span>
-                Rapor
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/penilaians*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
-                <span data-feather="user" class="align-text-bottom"></span>
-                Penilaian
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/beritas*') ? 'active' : '' }}" aria-current="page" href="/admin/teachers">
-                <span data-feather="user" class="align-text-bottom"></span>
-                Berita Sekolah
-                </a>
-            </li> --}}
         </ul>
     </div>
 </nav>
