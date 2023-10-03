@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DashboardBeritaController;
 use App\Http\Controllers\CetakRaportController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
@@ -31,6 +33,8 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/berita', [BeritaController::class, 'index']);
+
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -50,6 +54,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/admin/tapel', TapelController::class);
     Route::resource('/admin/user', UserController::class);
     Route::resource('/admin/raport', CetakRaportController::class, ['uses' => ['index', 'store', 'show']]);
+    Route::resource('/admin/berita', DashboardBeritaController::class);
 });
 // End Route Group Admin
 

@@ -64,6 +64,15 @@
                 Cetak Raport
                 </a>
             </li>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                <span>Data Web</span>
+            </h6>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('admin/berita*') ? 'active' : '' }}" aria-current="page" href="/admin/berita">
+                <span class="nav-icon fas fa-print me-2"></span>
+                Berita
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
