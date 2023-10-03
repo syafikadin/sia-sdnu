@@ -11,14 +11,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('guru/jadwals*') ? 'active' : '' }}" aria-current="page" href="/guru/teachers">
-                <span data-feather="user" class="align-text-bottom"></span>
-                Jadwal Pelajaran
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link {{ Request::is('guru/nilai*') ? 'active' : '' }}" aria-current="page" href="/guru/nilai">
-                <span data-feather="user" class="align-text-bottom"></span>
+                <span data-feather="book-open" class="align-text-bottom"></span>
                 Penilaian
                 </a>
             </li>
