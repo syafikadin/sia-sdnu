@@ -10,7 +10,7 @@ class BeritaController extends Controller
     public function index()
     {
         $title = 'Berita';
-        $data_berita = Berita::all();
+        $data_berita = Berita::latest()->filter(request(['search', 'category']))->paginate(7)->withQueryString();
 
         return view('berita', compact('title', 'data_berita'));
     }
