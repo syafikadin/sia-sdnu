@@ -15,11 +15,11 @@ class BeritaController extends Controller
         return view('berita', compact('title', 'data_berita'));
     }
 
-    // public function selectedPost(Berita $post)
-    // {
-    //     return view('post', [
-    //         "title" => "Single Post",
-    //         "post" => $post
-    //     ]);
-    // }
+    public function selectedBerita(Berita $berita)
+    {
+        return view('detailberita', [
+            "title" => "Detail Berita",
+            "berita" => $berita
+        ]);
+    }
 }

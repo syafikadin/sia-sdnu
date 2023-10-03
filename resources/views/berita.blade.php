@@ -32,7 +32,7 @@
         </small>
       </p> 
       <p class="card-text">{{ $data_berita[0]->body }}</p>
-      <a href="/data_berita/{{ $data_berita[0]->id }}" class="text-decoration-none btn btn-primary">Read More</a>
+      <a href="/berita/{{ $data_berita[0]->id }}" class="text-decoration-none btn btn-primary">Read More</a>
     </div>
   </div>
 

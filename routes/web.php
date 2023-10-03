@@ -34,6 +34,7 @@ Route::get('/', function () {
 });
 
 Route::get('/berita', [BeritaController::class, 'index']);
+Route::get('/berita/{berita:id}', [BeritaController::class, 'selectedBerita']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);

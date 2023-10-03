@@ -69,7 +69,7 @@
             </h6>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/berita*') ? 'active' : '' }}" aria-current="page" href="/admin/berita">
-                <span class="nav-icon fas fa-print me-2"></span>
+                <span class="nav-icon fas fa-newspaper me-2"></span>
                 Berita
                 </a>
             </li>
