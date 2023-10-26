@@ -15,6 +15,7 @@
     
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/carousel.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
