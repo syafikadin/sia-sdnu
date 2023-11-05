@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #286454">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #286454">
     <div class="container">
       <a class="navbar-brand" href="/">SIAKAD SD NU</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
