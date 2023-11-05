@@ -65,7 +65,7 @@ class SiswaController extends Controller
             $user = new User([
                 'username' => strtolower(str_replace(' ', '', $request->nama_siswa . $request->nis)),
                 'password' => bcrypt('123456'),
-                'role' => 2,
+                'role' => 3,
             ]);
 
             $user->save();
