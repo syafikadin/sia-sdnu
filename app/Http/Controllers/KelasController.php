@@ -31,7 +31,7 @@ class KelasController extends Controller
                 $kelas->jumlah_anggota = $jumlah_anggota;
             }
         }
-        return view('admin.kelas.index', compact('title', 'title', 'data_kelas', 'data_guru'));
+        return view('admin.kelas.index', compact('title', 'title', 'data_kelas', 'data_guru', 'tapel'));
     }
 
     /**
@@ -53,17 +53,15 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'nama_kelas' => 'required',
+            'tapel_id' => 'required',
             'guru_id' => 'required',
+            'nama_kelas' => 'required',
         ]);
 
-        if (!$validateData) {
-            return back()->with('toast_error', $validateData->messages()->all()[0])->withInput();
-        }
-
         $kelas = new Kelas([
-            'nama_kelas' => $request->nama_kelas,
+            'tapel_id' => $request->tapel_id,
             'guru_id' => $request->guru_id,
+            'nama_kelas' => $request->nama_kelas,
         ]);
 
         $kelas->save($validateData);

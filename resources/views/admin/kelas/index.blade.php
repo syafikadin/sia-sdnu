@@ -37,6 +37,7 @@
                 <div class="modal-body">
                     <div class="mb-2">
                         <label for="nama_kelas" class="form-label">Nama Kelas</label>
+                        <input type="hidden" class="form-control" name="tapel_id" value="{{$tapel->id}}" readonly>
                         <input type="text" class="form-control @error('nama_kelas') is-invalid @enderror" id="nama_kelas" name="nama_kelas" required autofocus value="{{ old('nama_kelas') }}">
                         @error('nama_kelas')
                             <div class="invalid-feedback">

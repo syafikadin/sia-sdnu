@@ -41,11 +41,13 @@ class MapelController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
+            'tapel_id' => 'required',
             'nama_mapel' => 'required',
             'ringkasan' => 'required',
         ]);
 
         $mapel = new Mapel([
+            'tapel_id' => $request->session()->get('tapel_id'),
             'nama_mapel' => $request->nama_mapel,
             'ringkasan' => $request->ringkasan,
         ]);
