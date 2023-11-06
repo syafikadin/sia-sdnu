@@ -24,7 +24,7 @@
             <form method="post" action="/admin/berita" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Data mapel</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Data Berita</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -101,21 +101,21 @@
             </tr>
 
             {{-- Modal Edit --}}
-            {{-- <div class="modal fade" id="modal-edit-{{ $mapel->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-edit-{{ $berita->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form method="post" action="/admin/mapel/{{ $mapel->id }}" enctype="multipart/form-data">
+                        <form method="post" action="/admin/berita/{{ $berita->id }}" enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Edit Data mapel</h5>
+                                <h5 class="modal-title" id="staticBackdropLabel">Edit Data Berita</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="mb-2">
-                                    <label for="nama_mapel" class="form-label">Nama mapel</label>
-                                    <input type="text" class="form-control @error('nama_mapel') is-invalid @enderror" id="nama_mapel" name="nama_mapel" required value="{{ $mapel->nama_mapel }}">
-                                    @error('nama_mapel')
+                                    <label for="title" class="form-label">Judul Berita</label>
+                                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required value="{{ $berita->title }}">
+                                    @error('title')
                                         <div class="invalid-feedback">
                                         {{ $message }}
                                         </div>   
@@ -123,9 +123,26 @@
                                 </div>
 
                                 <div class="mb-2">
-                                    <label for="ringkasan" class="form-label">Ringkasan</label>
-                                    <input type="text" class="form-control @error('ringkasan') is-invalid @enderror" id="ringkasan" name="ringkasan" required value="{{ $mapel->ringkasan }}">
-                                    @error('ringkasan')
+                                    <label for="image" class="form-label">Photo</label>
+                                    @if ($berita->image)
+                                      <img src="{{ asset('storage/' . $berita->image) }}" alt="" class="img-preview img-fluid mb-3 col-sm-5 d-block">  
+                                    @else
+                                      <img class="img-preview img-fluid mb-3 col-sm-5">    
+                                    @endif
+                                    
+                                    <input type="hidden" name="oldImage" value="{{ $berita->image }}">
+                                    <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+                                    @error('image')
+                                      <div class="invalid-feedback">
+                                        {{ $message }}
+                                      </div>  
+                                    @enderror
+                                  </div>
+
+                                <div class="mb-2">
+                                    <label for="body" class="form-label">Body</label>
+                                    <input type="text" class="form-control @error('body') is-invalid @enderror" id="body" name="body" required value="{{ $berita->body }}">
+                                    @error('body')
                                         <div class="invalid-feedback">
                                         {{ $message }}
                                         </div>   
@@ -139,7 +156,7 @@
                         </form>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             {{-- End Modal Edit --}}
 
 
