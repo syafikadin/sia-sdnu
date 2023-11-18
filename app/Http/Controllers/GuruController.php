@@ -77,9 +77,10 @@ class GuruController extends Controller
      */
     public function show(Guru $guru)
     {
+        $title = 'Detail Data Guru';
         return view('admin.guru.show', [
             'guru' => $guru
-        ]);
+        ], compact('title'));
     }
 
     /**
