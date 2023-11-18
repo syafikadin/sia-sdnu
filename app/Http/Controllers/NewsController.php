@@ -118,6 +118,7 @@ class NewsController extends Controller
     public function destroy(News $news)
     {
         News::destroy($news->id);
+        Storage::delete($news->image);
 
         return redirect('/admin/news')->with('success', 'Berita berhasil dihapus');
     }
