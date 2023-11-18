@@ -5,10 +5,12 @@ use App\Http\Controllers\DashboardBeritaController;
 use App\Http\Controllers\CetakRaportController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KabarController;
 use App\Http\Controllers\KelasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NilaiAkhirSemesterController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PembelajaranController;
@@ -55,7 +57,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/admin/tapel', TapelController::class);
     Route::resource('/admin/user', UserController::class);
     Route::resource('/admin/raport', CetakRaportController::class, ['uses' => ['index', 'store', 'show']]);
-    Route::resource('/admin/berita', DashboardBeritaController::class);
+    Route::resource('/admin/news', NewsController::class);
 });
 // End Route Group Admin
 
