@@ -13,8 +13,11 @@ class News extends Model
         'id',
     ];
 
-    public function tapel()
+    public function scopeFilter($query, array $filters)
     {
-        return $this->belongsTo(Tapel::class);
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%')
+                ->orWhere('body', 'like', '%' . $search . '%');
+        });
     }
 }

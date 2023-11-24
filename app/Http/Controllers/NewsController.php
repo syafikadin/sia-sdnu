@@ -41,7 +41,7 @@ class NewsController extends Controller
     {
         $validateData = $request->validate([
             'news' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:2048',
             'body' => 'required',
         ]);
 
@@ -90,7 +90,7 @@ class NewsController extends Controller
     {
         $rules = [
             'news' => 'required',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:2048',
             'body' => 'required',
         ];
 
