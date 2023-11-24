@@ -1,0 +1,42 @@
+/* Flexbox untuk galeri */
+.galery {
+    display: flex;
+    overflow-x: auto; /* Membuat scrollbar horizontal saat konten melebihi lebar */
+    gap: 20px; /* Jarak antar elemen */
+    padding-bottom: 20px; 
+ }
+ 
+ .galery::-webkit-scrollbar {
+    height: 10px; /* Lebar scrollbar */
+  }
+  
+  /* Track */
+  .galery::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Warna latar belakang track scrollbar */
+  }
+  
+  /* Handle atau thumb */
+  .galery::-webkit-scrollbar-thumb {
+    background: #558257; /* Warna handle scrollbar */
+    border-radius: 5px; /* Sudut radius pada handle scrollbar */
+  }
+ 
+ .item-galery {
+    flex: 0 0 auto; /* Mencegah item untuk memperluas lebih dari ukuran defaultnya */
+    width: 250px; /* Atur lebar item sesuai kebutuhan */
+    /* Gaya untuk setiap elemen dalam galeri */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+ }
+ 
+ .item-galery img {
+    width: 100%; /* Memastikan gambar mengisi seluruh ruang yang tersedia */
+    height: 100%; /* Memastikan gambar mengisi seluruh ruang yang tersedia */
+    object-fit: cover;
+ }

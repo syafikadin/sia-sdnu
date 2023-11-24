@@ -1,0 +1,50 @@
+html {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+ }
+ 
+ /* Custom Font */
+ .text-small {
+  font-size: 0.9rem;  
+ }
+ .font-primary {
+    color: #264E49;  
+ }
+ .font-secondary {
+    color: #E3E566;
+ }
+ .font-success {
+    color: #558257;
+ }
+ .font-black {
+    color: #3E3E3E;
+ }
+ 
+ 
+ /* Custom Button */
+ .button-primary {
+    background-color: #264E49;  
+ }
+ .button-secondary {
+    background-color: #E3E566;
+ }
+ .button-success {
+    background-color: #558257;
+ }
+ .button-black {
+    background-color: #3E3E3E;
+ }
+ 
+ /* custom shadow */
+ .shadow-effect {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+ }
+ .text-shadow-effect {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+ }
+ 
+ /* border */
+ .border-grey {
+    border: 1px solid #eeeeee;
+ }
+ 

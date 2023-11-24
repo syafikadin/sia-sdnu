@@ -1,0 +1,31 @@
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: initial;
+    text-align: center;
+    margin: 0 10%;
+ }
+ 
+ .news {
+    margin: 4rem auto;
+ }
+ 
+ .why {
+    margin: 8rem auto;
+    padding: 4rem 0;
+    background-color: #f1f1f1;
+ }
+ 
+ .profile {
+    margin: 4rem auto;
+ }
+ 
+ .img-fluid {
+    width: 300px; /* Atur lebar gambar sesuai kebutuhan */
+    height: auto; /* Atur tinggi gambar agar proporsi aslinya tetap terjaga */
+    display: block; /* Agar gambar memenuhi lebar kontainer */
+    margin: 0 auto; /* Untuk memposisikan gambar di tengah */
+  }
+ 
+ 
+  
