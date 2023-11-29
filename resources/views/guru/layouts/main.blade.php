@@ -1,14 +1,17 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Guru</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/guru/sidebar.css">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/css/plugins/fontawesome-free/css/all.min.css">
@@ -28,27 +31,30 @@
     <link rel="stylesheet" href="/css/plugins/summernote/summernote-bs4.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="/css/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
-  </head>
-  <body>
-    
-@include('guru.layouts.header')
+</head>
 
-<div class="container-fluid">
-  <div class="row">
+<body>
 
-    @include('guru.layouts.sidebar')
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      @yield('container')
-    </main>
-  </div>
-</div>
+    <div class="container-fluid">
+        <div class="row">
+
+            @include('guru.layouts.sidebar')
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                @yield('container')
+            </main>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
+    </script>
+
     <script src="/js/dashboard.js"></script>
-  </body>
+</body>
+
 </html>
