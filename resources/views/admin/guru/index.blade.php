@@ -131,9 +131,9 @@
                         <td>{{ $guru->jenis_kelamin == 0 ? 'L' : 'P' }}</td>
                         <td>{{ $guru->tanggal_lahir }}</td>
                         <td>
-                            <a href="/admin/guru/{{ $guru->id }}" class="badge bg-info"><span data-feather="info"
-                                    class="align-text-bottom"></span></a>
-                            {{-- <a href="/admin/guru/{{ $guru->id }}/edit" class="badge bg-warning"></a>  --}}
+                            <a href="/admin/guru/{{ $guru->id }}" class="badge bg-info">
+                                <span class="fas fa-info-circle nav-icon"></span>
+                            </a>
                             <button class="badge bg-warning border-0" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit-{{ $guru->id }}">
                                 <span data-feather="edit" class="align-text-bottom"></span>
