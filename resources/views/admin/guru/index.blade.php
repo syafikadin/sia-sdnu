@@ -132,18 +132,18 @@
                         <td>{{ $guru->tanggal_lahir }}</td>
                         <td>
                             <a href="/admin/guru/{{ $guru->id }}" class="badge bg-info">
-                                <span class="fas fa-info-circle nav-icon"></span>
+                                <i class="fa-solid fa-circle-info fa-xl py-2"></i>
                             </a>
                             <button class="badge bg-warning border-0" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit-{{ $guru->id }}">
-                                <span data-feather="edit" class="align-text-bottom"></span>
+                                <i class="fa-solid fa-pen-to-square fa-xl py-2"></i>
                             </button>
 
                             <form action="/admin/guru/{{ $guru->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0" onclick="return confirm('Are You Sure?')">
-                                    <span data-feather="trash-2" class="align-text-bottom"></span>
+                                    <i class="fa-solid fa-trash fa-xl py-2"></i>
                                 </button>
                             </form>
                         </td>

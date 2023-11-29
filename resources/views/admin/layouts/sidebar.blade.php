@@ -14,14 +14,14 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('admin') ? 'active' : '' }}" aria-current="page" href="/admin">
-                        <span class="nav-icon fas fa-tachometer-alt me-2"></span>
+                        <i class="fa-solid fa-gauge me-2"></i>
                         Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('admin/user') ? 'active' : '' }}" aria-current="page"
                         href="/admin/user">
-                        <span class="nav-icon fas fa-user-friends me-2"></span>
+                        <i class="fa-solid fa-user-group me-2"></i>
                         Data User
                     </a>
                 </li>
@@ -32,42 +32,42 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('admin/guru*') ? 'active' : '' }}" aria-current="page"
                         href="/admin/guru">
-                        <span class="fas fa-user-tie nav-icon me-2"></span>
+                        <i class="fa-solid fa-chalkboard-user me-2"></i>
                         Data Guru
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('admin/siswa*') ? 'active' : '' }}" aria-current="page"
                         href="/admin/siswa">
-                        <span class="fas fa-users nav-icon me-2"></span>
+                        <i class="fa-solid fa-users me-2"></i>
                         Data Siswa
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('admin/kelas*') ? 'active' : '' }}" aria-current="page"
                         href="/admin/kelas">
-                        <span class="fas fa-layer-group nav-icon me-2"></span>
+                        <i class="fa-solid fa-landmark me-2"></i>
                         Data Kelas
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('admin/mapel*') ? 'active' : '' }}" aria-current="page"
                         href="/admin/mapel">
-                        <span class="fas fa-book nav-icon me-2"></span>
+                        <i class="fa-solid fa-book me-2"></i>
                         Data Mata Pelajaran
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('admin/pembelajaran*') ? 'active' : '' }}" aria-current="page"
                         href="/admin/pembelajaran">
-                        <span class="fas fa-book-open nav-icon me-2"></span>
+                        <i class="fa-solid fa-book-open me-2"></i>
                         Data Pembelajaran
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('admin/tapel*') ? 'active' : '' }}" aria-current="page"
                         href="/admin/tapel">
-                        <span class="fas fa-calendar-week nav-icon me-2"></span>
+                        <i class="fa-solid fa-calendar-week me-2"></i>
                         Data Tahun Pelajaran
                     </a>
                 </li>
@@ -78,7 +78,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('admin/raport*') ? 'active' : '' }}" aria-current="page"
                         href="/admin/raport">
-                        <span class="nav-icon fas fa-print me-2"></span>
+                        <i class="fa-solid fa-print me-2"></i>
                         Cetak Raport
                     </a>
                 </li>
@@ -89,7 +89,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('admin/news*') ? 'active' : '' }}" aria-current="page"
                         href="/admin/news">
-                        <span class="nav-icon fas fa-newspaper me-2"></span>
+                        <i class="fa-solid fa-newspaper me-2"></i>
                         Berita Sekolah
                     </a>
                 </li>
