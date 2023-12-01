@@ -5,7 +5,7 @@
         <h1 class="h2">Tabel Guru</h1>
 
         <!-- Button Trigger Modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-tambah">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-tambah">
             Tambah Guru
         </button>
     </div>
