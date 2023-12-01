@@ -49,7 +49,8 @@
                         <form action="/admin/guru/{{ $guru->id }}" method="post" class="d-inline">
                             @method('delete')
                             @csrf
-                            <button class="badge bg-danger border-0" onclick="return confirm('Are You Sure?')">
+                            <button class="badge bg-danger border-0"
+                                onclick="return confirm('Apa anda yakin menghapus data ini?')">
                                 <i class="fa-solid fa-trash fa-xl py-2"></i>
                             </button>
                         </form>
