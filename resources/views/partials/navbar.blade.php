@@ -82,11 +82,34 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    @if (Auth::guard('web')->user())
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Helo {{ Auth::user()->username }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/admin"><i class="bi bi-layout-text-window-reverse"></i>
+                                    My Dashboard</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    <i class="bi bi-box-arrow-right"></i> Logout
+                                </button>
+                            </form>
+                        </ul>
+                    @else
                 <li class="nav-item">
-                    <a href="/login" class="btn btn-success button-success px-3"><i
+                    <a href="/login"
+                        class="btn btn-success text-white px-3 {{ $title === 'Login' ? 'active' : '' }}"><i
                             class="bi bi-box-arrow-in-right mr-2"></i>
                         Login</a>
                 </li>
+                @endif
+
             </ul>
         </div>
     </div>
