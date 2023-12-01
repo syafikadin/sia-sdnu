@@ -95,6 +95,15 @@
                 </li>
             </ul>
 
+            <div class="logout">
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-danger mt-5 py-2 w-100">
+                        <i class="fa-solid fa-right-from-bracket"></i> Logout
+                    </button>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>
