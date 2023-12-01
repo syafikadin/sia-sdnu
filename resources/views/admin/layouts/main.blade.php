@@ -61,6 +61,7 @@
     <script src="/js/kelas-table.js"></script>
     <script src="/js/mapel-table.js"></script>
     <script src="/js/pembelajaran-table.js"></script>
+    <script src="/js/tapel-table.js"></script>
 
 </body>
 
