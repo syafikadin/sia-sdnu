@@ -56,6 +56,105 @@
                         </form>
                     </td>
                 </tr>
+
+                {{-- Modal Edit --}}
+                <div class="modal fade" id="modal-edit-{{ $guru->id }}" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form method="post" action="/admin/guru/{{ $guru->id }}" enctype="multipart/form-data">
+                                @method('put')
+                                @csrf
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Edit Data Guru</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-2">
+                                        <label for="nama_guru" class="form-label">Nama Guru</label>
+                                        <input type="text" class="form-control @error('nama_guru') is-invalid @enderror"
+                                            id="nama_guru" name="nama_guru" required value="{{ $guru->nama_guru }}">
+                                        @error('nama_guru')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label for="gelar" class="form-label">Gelar</label>
+                                        <input type="text" class="form-control @error('gelar') is-invalid @enderror"
+                                            id="gelar" name="gelar" required value="{{ $guru->gelar }}">
+                                        @error('gelar')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label for="nip" class="form-label">NIP</label>
+                                        <input type="text" class="form-control @error('nip') is-invalid @enderror"
+                                            id="nip" name="nip" required value="{{ $guru->nip }}">
+                                        @error('nip')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                                        <div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" id="jenis_kelamin"
+                                                    name="jenis_kelamin" value="0"
+                                                    @if ($guru->jenis_kelamin == 0) checked @endif required>
+                                                <label class="form-check-label" for="jenis_kelamin">Laki-laki</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" id="jenis_kelamin"
+                                                    name="jenis_kelamin" value="1"
+                                                    @if ($guru->jenis_kelamin == 1) checked @endif required>
+                                                <label class="form-check-label" for="jenis_kelamin">Perempuan</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
+                                            value="{{ $guru->tanggal_lahir }}">
+                                        @error('tanggal_lahir')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label for="alamat" class="form-label">Alamat</label>
+                                        <input type="text" class="form-control @error('alamat') is-invalid @enderror"
+                                            id="alamat" name="alamat" required autofocus
+                                            value="{{ $guru->alamat }}">
+                                        @error('alamat')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {{-- End Modal Edit --}}
             @endforeach
         </tbody>
     </table>
@@ -86,8 +185,8 @@
 
                         <div class="mb-2">
                             <label for="gelar" class="form-label">Gelar</label>
-                            <input type="text" class="form-control @error('gelar') is-invalid @enderror" id="gelar"
-                                name="gelar" required value="{{ old('gelar') }}">
+                            <input type="text" class="form-control @error('gelar') is-invalid @enderror"
+                                id="gelar" name="gelar" required value="{{ old('gelar') }}">
                             @error('gelar')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -110,13 +209,13 @@
                             <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                             <div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                        value="0">
+                                    <input class="form-check-input" type="radio" id="jenis_kelamin"
+                                        name="jenis_kelamin" value="0">
                                     <label class="form-check-label" for="jenis_kelamin">Laki-laki</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                        value="1">
+                                    <input class="form-check-input" type="radio" id="jenis_kelamin"
+                                        name="jenis_kelamin" value="1">
                                     <label class="form-check-label" for="jenis_kelamin">Perempuan</label>
                                 </div>
                             </div>
@@ -153,100 +252,4 @@
         </div>
     </div>
     {{-- End Modal Tambah --}}
-
-    {{-- Modal Edit --}}
-    <div class="modal fade" id="modal-edit-{{ $guru->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
-        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form method="post" action="/admin/guru/{{ $guru->id }}" enctype="multipart/form-data">
-                    @method('put')
-                    @csrf
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Edit Data Guru</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-2">
-                            <label for="nama_guru" class="form-label">Nama Guru</label>
-                            <input type="text" class="form-control @error('nama_guru') is-invalid @enderror"
-                                id="nama_guru" name="nama_guru" required value="{{ $guru->nama_guru }}">
-                            @error('nama_guru')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-2">
-                            <label for="gelar" class="form-label">Gelar</label>
-                            <input type="text" class="form-control @error('gelar') is-invalid @enderror"
-                                id="gelar" name="gelar" required value="{{ $guru->gelar }}">
-                            @error('gelar')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-2">
-                            <label for="nip" class="form-label">NIP</label>
-                            <input type="text" class="form-control @error('nip') is-invalid @enderror" id="nip"
-                                name="nip" required value="{{ $guru->nip }}">
-                            @error('nip')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-2">
-                            <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                            <div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="jenis_kelamin"
-                                        name="jenis_kelamin" value="0"
-                                        @if ($guru->jenis_kelamin == 0) checked @endif required>
-                                    <label class="form-check-label" for="jenis_kelamin">Laki-laki</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="jenis_kelamin"
-                                        name="jenis_kelamin" value="1"
-                                        @if ($guru->jenis_kelamin == 1) checked @endif required>
-                                    <label class="form-check-label" for="jenis_kelamin">Perempuan</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-2">
-                            <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
-                                value="{{ $guru->tanggal_lahir }}">
-                            @error('tanggal_lahir')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-2">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" class="form-control @error('alamat') is-invalid @enderror"
-                                id="alamat" name="alamat" required autofocus value="{{ $guru->alamat }}">
-                            @error('alamat')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    {{-- End Modal Edit --}}
 @endsection
