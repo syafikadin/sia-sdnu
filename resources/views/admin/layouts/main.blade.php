@@ -59,6 +59,7 @@
     <script src="/js/my-table.js"></script>
     <script src="/js/guru-table.js"></script>
     <script src="/js/kelas-table.js"></script>
+    <script src="/js/mapel-table.js"></script>
 
 </body>
 
