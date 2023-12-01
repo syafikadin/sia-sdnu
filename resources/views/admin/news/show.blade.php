@@ -7,15 +7,16 @@
                 <h2>{{ $news->news }}</h2>
 
 
-                <a href="/admin/news" class="btn btn-success"><span data-feather="corner-up-left"
-                        class="align-text-bottom"></span> Kembali ke Data Berita</a>
+                <a href="/admin/news" class="btn btn-success">
+                    <i class="fa-solid fa-backward-step"></i> Kembali ke Data Berita
+                </a>
 
 
                 <form action="/admin/news/{{ $news->id }}" method="post" class="d-inline">
                     @method('delete')
                     @csrf
-                    <button class="btn btn-danger" onclick="return confirm('Are You Sure?')">
-                        <span data-feather="trash-2" class="align-text-bottom"></span> Delete
+                    <button class="btn btn-danger" onclick="return confirm('Apa anda yakin menghapus data ini?')">
+                        <i class="fa-solid fa-trash"></i> Delete
                     </button>
                 </form>
 

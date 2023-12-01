@@ -17,6 +17,13 @@
         </div>
     @endif
 
+    @if (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <table id="mapel-table" class="table table-striped" style="width: 100%">
         <thead>
             <tr>
@@ -62,7 +69,7 @@
                                 @method('put')
                                 @csrf
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Edit Data news</h5>
+                                    <h5 class="modal-title" id="staticBackdropLabel">Edit Data Berita Sekolah</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
