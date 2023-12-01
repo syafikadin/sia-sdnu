@@ -58,6 +58,7 @@
     <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
     <script src="/js/my-table.js"></script>
     <script src="/js/guru-table.js"></script>
+    <script src="/js/kelas-table.js"></script>
 
 </body>
 
