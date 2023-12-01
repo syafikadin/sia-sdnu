@@ -17,6 +17,13 @@
         </div>
     @endif
 
+    @if (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <table id="guru-table" class="table table-striped" style="width: 100%">
         <thead>
             <tr>
@@ -124,8 +131,8 @@
 
                                     <div class="mb-2">
                                         <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
-                                            value="{{ $guru->tanggal_lahir }}">
+                                        <input type="date" class="form-control" id="tanggal_lahir"
+                                            name="tanggal_lahir" value="{{ $guru->tanggal_lahir }}">
                                         @error('tanggal_lahir')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
