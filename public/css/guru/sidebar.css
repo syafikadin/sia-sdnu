@@ -1,93 +1,50 @@
-.sidebar {
-    background: #333;
-    color: #fff;
-    position: fixed;
+.bi {
+   display: inline-block;
+   width: 1rem;
+   height: 1rem;
  }
  
- .logo {
-    background-color: #03AF75;
-    padding: 15px;
+ /*
+  * Sidebar
+  */
+ 
+ @media (min-width: 768px) {
+   .sidebar .offcanvas-lg {
+     position: -webkit-sticky;
+     position: sticky;
+     top: 48px;
+   }
+   .navbar-search {
+     display: block;
+   }
  }
  
- .indicator {
-    font-size: 10px;
-    margin: 0 10px;
-    padding-left: 10%;
-    color: #03AF75;
+ .sidebar .nav-link {
+   font-size: .875rem;
+   font-weight: 500;
+   color: black;
  }
  
- .nav-container {
-    margin: 5px 5px;
-    max-height: 75%; 
-    overflow-y: auto; /* Tambahkan kemampuan scroll jika konten melebihi ketinggian maksimum */
-    margin-bottom: 404px;
+ .sidebar .nav-link.active {
+   color: #1CB78D;
  }
  
- ::-webkit-scrollbar {
-    width: 4px; /* Atur lebar scrollbar */
-  }
-  
-  /* Gaya dari thumb (bagian yang bisa digerakkan) */
-  ::-webkit-scrollbar-thumb {
-    background-color: #03AF75; /* Warna dari thumb */
-    border-radius: 4px; /* Sudut dari thumb */
-  }
-  
-  /* Gaya dari track (area background scrollbar) ketika mouse over */
-  ::-webkit-scrollbar-track:hover {
-    background-color: #f1f1f1; /* Warna ketika hover */
-  }
- 
- .nav {
-    list-style: none;
-    padding: 0;
+ .sidebar-heading {
+   font-size: .75rem;
  }
  
- .nav li {
-    padding: 0 5px;
-    width: 100%;
+ /*
+  * Navbar
+  */
+ 
+ .navbar-brand {
+   padding-top: .75rem;
+   padding-bottom: .75rem;
+   background-color: rgba(0, 0, 0, .25);
+   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
  }
  
- .nav li .btn {
-    text-align: start;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10%;
-    margin: 2px 0;
-    color: #fff;
-    background-color: #333;
- }
- .nav li .btn:hover {
-    background-color: #03AF75;
+ .navbar .form-control {
+   padding: .75rem 1rem;
  }
  
- .nav li .btn.active {
-    background-color: #03AF75;
- }
- 
- .logout {
-    padding: 0 10px;
-    width: 100%;
- }
-
- @media (max-width: 767px) {
-    #sidebarMenu {
-        display: none;
-    }
-
-    #sidebarMenu.show {
-        display: block;
-    }
-
-    #sidebarMenu .nav-container {
-        display: none;
-    }
-
-    #sidebarMenu.show .nav-container {
-        display: block;
-    }
-
-    #sidebarMenu .logout {
-        margin-top: 10px;
-    }
-}

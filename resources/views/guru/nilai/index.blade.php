@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Nilai Siswa</h1>
+        <h1 class="h2">Penilaian Siswa</h1>
     </div>
 
     @if (session()->has('success'))
@@ -12,20 +12,8 @@
         </div>
     @endif
 
-    {{-- <div class="card text-end" style="width: 100%;">
-      <div class="card-body">
-        <button type="button" class="btn btn-primary" title="Download Format Nilai" data-bs-toggle="modal" data-bs-target="#modal-download">
-          <span data-feather="download" class="align-text-bottom"></span>
-        </button>
-        <button type="button" class="btn btn-primary" title="Import Nilai" data-bs-toggle="modal" data-bs-target="#modal-upload">
-          <span data-feather="upload" class="align-text-bottom"></span>
-        </button>
-      </div>
-    </div> --}}
-
-
-    <div class="table-responsive col-lg-8">
-        <table class="table table-bordered table-striped table-sm mt-3">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-sm mt-3" style="width: 100%">
             <thead>
                 <tr>
                     <th rowspan="2" class="text-center" style="width: 100px;">No</th>
@@ -35,8 +23,8 @@
                     <th rowspan="2" class="text-center" style="width: 100px;">Input Nilai</th>
                 </tr>
                 <tr>
-                    <th class="text-center" style="width: 100px;">Anggota Kelas</th>
-                    <th class="text-center" style="width: 100px;">Telah Dinilai</th>
+                    <th class="text-center" style="width: 150px;">Anggota Kelas</th>
+                    <th class="text-center" style="width: 150px;">Telah Dinilai</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,7 +52,7 @@
                                     @csrf
                                     <input type="hidden" name="pembelajaran_id" value="{{ $penilaian->id }}">
                                     <button type="submit" class="btn btn-sm btn-primary">
-                                        <span data-feather="plus" class="align-text-bottom"></span>
+                                        <i class="fa-solid fa-plus"></i>
                                     </button>
                                 </form>
                             </td>
@@ -75,7 +63,7 @@
                                     <input type="hidden" name="pembelajaran_id" value="{{ $penilaian->id }}">
                                     <button type="submit" class="btn btn-sm btn-primary"
                                         title="Belum ditemukan anggota kelas" disabled>
-                                        <span data-feather="plus" class="align-text-bottom"></span>
+                                        <i class="fa-solid fa-plus"></i>
                                     </button>
                                 </form>
                             </td>
