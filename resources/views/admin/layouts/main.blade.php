@@ -57,6 +57,7 @@
     <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
     <script src="/js/my-table.js"></script>
+    <script src="/js/guru-table.js"></script>
 
 </body>
 
