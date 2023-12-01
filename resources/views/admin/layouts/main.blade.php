@@ -18,7 +18,7 @@
     <link href="/css/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
 
     {{-- Table Custom --}}
-    <link rel="stylesheet" href="/css/table-custom.css" />
+    <link rel="stylesheet" href="/css/admin.sidebar.css" />
     <!-- Data Table CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css" />
 
