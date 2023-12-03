@@ -54,9 +54,22 @@ class DashboardController extends Controller
             ));
         } elseif (Auth::user()->role == 3) {
 
-            // $siswa = Siswa::where('user_id', Auth::user()->id)->first();
+            $siswa = Siswa::where('user_id', Auth::user()->id)->first();
 
-            // $data_id_kelas = Kelas::where('tapel_id', $tapel->id)->get('id');
+            $jumlah_anggota_kelas = count(Siswa::where('kelas_id', $siswa->id)->get());
+
+            $kelas = Kelas::where('id', $siswa->id)->first();
+
+            return view('siswa.index', compact(
+                'title',
+                'tapel',
+                'jumlah_anggota_kelas',
+                'kelas'
+            ));
+
+            dd($kelas);
+
+
 
             // $anggota_kelas = AnggotaKelas::whereIn('kelas_id', $data_id_kelas)->where('siswa_id', $siswa->id)->first();
             // if (is_null($anggota_kelas)) {

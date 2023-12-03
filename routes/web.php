@@ -82,6 +82,7 @@ Route::group(['middleware' => 'siswa'], function () {
     Route::get('/siswa', function () {
         return view('siswa.index');
     })->middleware('siswa');
+    Route::get('/siswa', [DashboardController::class, 'index']);
 
     Route::resource('/siswa/nilaisemester', NilaiAkhirSemesterController::class);
 });
