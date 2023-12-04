@@ -33,7 +33,12 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->username }}</td>
-                    <td>{{ $user->role == 1 ? 'Admin' : ($user->role == 2 ? 'Guru' : 'Siswa') }}</td>
+                    <td>
+                        <div
+                            class="{{ $user->role == 1 ? 'tag-admin' : ($user->role == 2 ? 'tag-guru' : 'tag-siswa') }} text-center">
+                            {{ $user->role == 1 ? 'Admin' : ($user->role == 2 ? 'Guru' : 'Siswa') }}
+                        </div>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

@@ -1,5 +1,19 @@
-.main-content {
-    margin-left: 250px;
-    padding: 20px;
+.tag-admin,
+.tag-guru,
+.tag-siswa {
+    color: #fff;
+    font-weight: 600;
+    padding: 5px 25px;
+    border-radius: 15px;
+    max-width: 90px;
+}
+
+.tag-admin {
+    background-color: #CA3232;
  }
- 
+ .tag-guru {
+    background-color: #487BF9;
+ }
+ .tag-siswa {
+    background-color: #1CB78D;
+ }
