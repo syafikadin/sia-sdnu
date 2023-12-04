@@ -81,12 +81,12 @@ class NilaiController extends Controller
                 );
                 $data_nilai_siswa[] = $data_nilai;
             } else {
-                return back()->with('toast_error', 'Nilai harus berisi antara 0 s/d 100');
+                return back()->with('error', 'Nilai harus berisi antara 0 s/d 100');
             }
         }
         $store_data_nilai = $data_nilai_siswa;
         Nilai::insert($store_data_nilai);
-        return redirect('guru/nilai')->with('toast_success', 'Data nilai berhasil disimpan.');
+        return redirect('guru/nilai')->with('success', 'Data nilai berhasil disimpan.');
     }
 
     /**
@@ -133,10 +133,10 @@ class NilaiController extends Controller
                 ];
                 Nilai::where('id', $nilai->id)->update($data_nilai);
             } else {
-                return back()->with('toast_error', 'Nilai harus berisi antara 0 s/d 100');
+                return back()->with('error', 'Nilai harus berisi antara 0 s/d 100');
             }
         }
-        return redirect('guru/nilai')->with('toast_success', 'Data nilai berhasil diedit.');
+        return redirect('guru/nilai')->with('success', 'Data nilai berhasil diedit.');
     }
 
     /**

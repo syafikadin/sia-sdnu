@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pembelajaran_id');
             $table->foreignId('siswa_id');
-            $table->integer('ko1')->default(0);
-            $table->integer('ko2')->default(0);
-            $table->integer('sub1')->default(0);
-            $table->integer('sub2')->default(0);
-            $table->integer('uts_uas')->default(0);
+            $table->decimal('ko1')->default(0);
+            $table->decimal('ko2')->default(0);
+            $table->decimal('sub1')->default(0);
+            $table->decimal('sub2')->default(0);
+            $table->decimal('uts_uas')->default(0);
             $table->timestamps();
         });
     }
