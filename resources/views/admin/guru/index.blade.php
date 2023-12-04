@@ -90,9 +90,9 @@
                                     </div>
 
                                     <div class="mb-2">
-                                        <label for="gelar" class="form-label">Gelar</label>
+                                        <label for="gelar" class="form-label">Gelar <span>(opsional)</span></label>
                                         <input type="text" class="form-control @error('gelar') is-invalid @enderror"
-                                            id="gelar" name="gelar" required value="{{ $guru->gelar }}">
+                                            id="gelar" name="gelar" value="{{ $guru->gelar }}">
                                         @error('gelar')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -101,9 +101,9 @@
                                     </div>
 
                                     <div class="mb-2">
-                                        <label for="nip" class="form-label">NIP</label>
+                                        <label for="nip" class="form-label">NIP <span>(opsional)</span></label>
                                         <input type="text" class="form-control @error('nip') is-invalid @enderror"
-                                            id="nip" name="nip" required value="{{ $guru->nip }}">
+                                            id="nip" name="nip" value="{{ $guru->nip }}">
                                         @error('nip')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -115,24 +115,26 @@
                                         <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                                         <div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" id="jenis_kelamin"
+                                                <input class="form-check-input" type="radio" id="jenis_kelamin_laki"
                                                     name="jenis_kelamin" value="0"
                                                     @if ($guru->jenis_kelamin == 0) checked @endif required>
-                                                <label class="form-check-label" for="jenis_kelamin">Laki-laki</label>
+                                                <label class="form-check-label" for="jenis_kelamin_laki">Laki-laki</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" id="jenis_kelamin"
+                                                <input class="form-check-input" type="radio" id="jenis_kelamin_perempuan"
                                                     name="jenis_kelamin" value="1"
                                                     @if ($guru->jenis_kelamin == 1) checked @endif required>
-                                                <label class="form-check-label" for="jenis_kelamin">Perempuan</label>
+                                                <label class="form-check-label"
+                                                    for="jenis_kelamin_perempuan">Perempuan</label>
                                             </div>
                                         </div>
                                     </div>
 
+
                                     <div class="mb-2">
                                         <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
                                         <input type="date" class="form-control" id="tanggal_lahir"
-                                            name="tanggal_lahir" value="{{ $guru->tanggal_lahir }}">
+                                            name="tanggal_lahir" value="{{ $guru->tanggal_lahir }}" required>
                                         @error('tanggal_lahir')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -191,9 +193,9 @@
                         </div>
 
                         <div class="mb-2">
-                            <label for="gelar" class="form-label">Gelar</label>
+                            <label for="gelar" class="form-label">Gelar <span>(opsional)</span></label>
                             <input type="text" class="form-control @error('gelar') is-invalid @enderror"
-                                id="gelar" name="gelar" required value="{{ old('gelar') }}">
+                                id="gelar" name="gelar" value="{{ old('gelar') }}">
                             @error('gelar')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -204,7 +206,7 @@
                         <div class="mb-2">
                             <label for="nip" class="form-label">NIP <span>(opsional)</span></label>
                             <input type="text" class="form-control @error('nip') is-invalid @enderror" id="nip"
-                                name="nip" required value="{{ old('nip') }}">
+                                name="nip" value="{{ old('nip') }}">
                             @error('nip')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -216,22 +218,23 @@
                             <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                             <div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="jenis_kelamin"
-                                        name="jenis_kelamin" value="0">
-                                    <label class="form-check-label" for="jenis_kelamin">Laki-laki</label>
+                                    <input class="form-check-input" type="radio" id="jenis_kelamin_laki"
+                                        name="jenis_kelamin" value="0" required>
+                                    <label class="form-check-label" for="jenis_kelamin_laki">Laki-laki</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="jenis_kelamin"
-                                        name="jenis_kelamin" value="1">
-                                    <label class="form-check-label" for="jenis_kelamin">Perempuan</label>
+                                    <input class="form-check-input" type="radio" id="jenis_kelamin_perempuan"
+                                        name="jenis_kelamin" value="1" required>
+                                    <label class="form-check-label" for="jenis_kelamin_perempuan">Perempuan</label>
                                 </div>
                             </div>
                         </div>
 
+
                         <div class="mb-2">
                             <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
                             <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
-                                value="{{ old('tanggal_lahir') }}">
+                                value="{{ old('tanggal_lahir') }}" required>
                             @error('tanggal_lahir')
                                 <div class="invalid-feedback">
                                     {{ $message }}
