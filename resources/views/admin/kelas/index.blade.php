@@ -87,12 +87,13 @@
 
                                     <div class="mb-2">
                                         <label for="guru_id" class="form-label">Wali Kelas</label>
-                                        <select name="guru_id" class="form-select" aria-label="Default select example">
-                                            <option selected>--Pilih Wali Kelas--</option>
+                                        <select name="guru_id" class="form-select" aria-label="Pilih Wali Kelas">
+                                            <option value="" selected disabled>-- Pilih Wali Kelas --</option>
                                             @foreach ($data_guru as $guru)
-                                                <option value="{{ $guru->id }}" required
+                                                <option value="{{ $guru->id }}"
                                                     @if ($guru->id == $kelas->guru->id) selected @endif>
-                                                    {{ $guru->nama_guru }}, {{ $guru->gelar }}</option>
+                                                    {{ $guru->nama_guru }}, {{ $guru->gelar }}
+                                                </option>
                                             @endforeach
                                         </select>
                                         @error('guru_id')
@@ -143,11 +144,11 @@
 
                         <div class="mb-2">
                             <label for="guru_id" class="form-label">Wali Kelas</label>
-                            <select name="guru_id" class="form-select" aria-label="Default select example">
-                                <option selected>--Pilih Wali Kelas--</option>
+                            <select name="guru_id" class="form-select" aria-label="Pilih Wali Kelas" required>
+                                <option value="" selected disabled>-- Pilih Wali Kelas --</option>
                                 @foreach ($data_guru as $guru)
-                                    <option value="{{ $guru->id }}" required>{{ $guru->nama_guru }},
-                                        {{ $guru->gelar }}
+                                    <option value="{{ $guru->id }}">
+                                        {{ $guru->nama_guru }}, {{ $guru->gelar }}
                                     </option>
                                 @endforeach
                             </select>
@@ -157,6 +158,7 @@
                                 </div>
                             @enderror
                         </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
