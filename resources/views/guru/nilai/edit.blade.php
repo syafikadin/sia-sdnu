@@ -34,6 +34,7 @@
                                             <th class="text-center">Nilai KO2</th>
                                             <th class="text-center">Nilai SUB1</th>
                                             <th class="text-center">Nilai SUB2</th>
+                                            <th class="text-center">Nilai Praktik</th>
                                             <th class="text-center">UTS UAS</th>
                                         </tr>
                                     </thead>
@@ -61,6 +62,11 @@
                                                 <td>
                                                     <input type="number" class="form-control" name="sub2[]"
                                                         value="{{ $nilai->sub2 }}" min="0" max="100"
+                                                        step="0.01" required>
+                                                </td>
+                                                <td>
+                                                    <input type="number" class="form-control" name="praktik[]"
+                                                        value="{{ $nilai->praktik }}" min="0" max="100"
                                                         step="0.01" required>
                                                 </td>
                                                 <td>

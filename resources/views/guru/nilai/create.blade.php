@@ -35,6 +35,7 @@
                                             <th class="text-center">Nilai KO 2</th>
                                             <th class="text-center">Nilai SUB 1</th>
                                             <th class="text-center">Nilai SUB 2</th>
+                                            <th class="text-center">Nilai Praktik</th>
                                             <th class="text-center">UTS UAS</th>
                                         </tr>
                                     </thead>
@@ -59,6 +60,10 @@
                                                 <td>
                                                     <input type="number" class="form-control" name="sub2[]" min="0"
                                                         max="100" step="0.01" required>
+                                                </td>
+                                                <td>
+                                                    <input type="number" class="form-control" name="praktik[]"
+                                                        min="0" max="100" step="0.01" required>
                                                 </td>
                                                 <td>
                                                     <input type="number" class="form-control" name="uts_uas[]"

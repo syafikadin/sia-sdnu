@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('ko2')->default(0);
             $table->decimal('sub1')->default(0);
             $table->decimal('sub2')->default(0);
+            $table->decimal('praktik')->default(0);
             $table->decimal('uts_uas')->default(0);
             $table->timestamps();
         });

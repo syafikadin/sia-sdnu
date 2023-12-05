@@ -77,6 +77,7 @@ class NilaiController extends Controller
                     'ko2'  => ltrim($request->ko2[$count_siswa]),
                     'sub1'  => ltrim($request->sub1[$count_siswa]),
                     'sub2'  => ltrim($request->sub2[$count_siswa]),
+                    'praktik'  => ltrim($request->praktik[$count_siswa]),
                     'uts_uas'  => ltrim($request->uts_uas[$count_siswa]),
                 );
                 $data_nilai_siswa[] = $data_nilai;
@@ -129,6 +130,7 @@ class NilaiController extends Controller
                     'ko2'  => ltrim($request->ko2[$cound_siswa]),
                     'sub1'  => ltrim($request->sub1[$cound_siswa]),
                     'sub2'  => ltrim($request->sub2[$cound_siswa]),
+                    'praktik'  => ltrim($request->praktik[$cound_siswa]),
                     'uts_uas'  => ltrim($request->uts_uas[$cound_siswa]),
                 ];
                 Nilai::where('id', $nilai->id)->update($data_nilai);
