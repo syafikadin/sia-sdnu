@@ -77,7 +77,7 @@
                 @foreach ($data_pembelajaran as $pembelajaran)
                     <?php
                     $no++;
-                    $total_nilai += $pembelajaran->nilai_ko1;
+                    $total_nilai += $pembelajaran->nilai_akhir;
                     $count++;
                     if ($count > 0) {
                         $rata_rata_nilai = $total_nilai / $count;
@@ -86,7 +86,7 @@
                     <tr class="nilai">
                         <td class="center">{{ $no }}</td>
                         <td>{{ $pembelajaran->mapel->nama_mapel }}</td>
-                        <td class="center">{{ $pembelajaran->nilai_ko1 }}</td>
+                        <td class="center">{{ $pembelajaran->nilai_akhir }}</td>
                         <td class="center">{{ $pembelajaran->rata_kelas }}</td>
                     </tr>
                 @endforeach

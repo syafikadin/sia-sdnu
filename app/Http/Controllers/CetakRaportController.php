@@ -84,12 +84,12 @@ class CetakRaportController extends Controller
 
         // Mencari rata-rata kelas
         foreach ($data_pembelajaran as $pembelajaran) {
-            $nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->where('siswa_id', $anggota_kelas->id)->first()->get();
+            $nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->whereIn('siswa_id', $anggota_kelas->pluck('id'))->get();
 
             $total_nilai_kelas = 0; // Inisialisasi total nilai kelas
 
-            foreach ($nilai as $item_nilai) {
-                $total_nilai_kelas += $item_nilai->ko1;
+            foreach ($nilai as $item) {
+                $total_nilai_kelas += (($item->sub1 + $item->sub2 + $item->ko1 + $item->ko2 + $item->praktik + $item->uts_uas) / 6);
             }
 
             $jumlah_siswa = count($nilai); // Jumlah siswa dalam kelas
@@ -100,14 +100,16 @@ class CetakRaportController extends Controller
             }
         }
 
+
         // Nilai Raport per mapel
         foreach ($data_pembelajaran as $pembelajaran) {
+            $nilai_akhir = 0;
             $nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->where('siswa_id', $anggota_kelas->id)->first();
 
             if (is_null($nilai)) {
-                $pembelajaran->nilai_ko1 = 0;
+                $pembelajaran->nilai_akhir = 0;
             } else {
-                $pembelajaran->nilai_ko1 = $nilai->ko1;
+                $pembelajaran->nilai_akhir = number_format((($nilai->sub1 + $nilai->sub2 + $nilai->ko1 + $nilai->ko2 + $nilai->praktik + $nilai->uts_uas) / 6), 1);
             }
         }
 
