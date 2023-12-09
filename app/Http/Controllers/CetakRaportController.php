@@ -67,21 +67,15 @@ class CetakRaportController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $title = 'Raport PTS';
-
+        $title = 'Raport UAS';
         $sekolah = Sekolah::first();
-
         $anggota_kelas = Siswa::findorfail($id);
 
         $kelas = Kelas::where('id', $anggota_kelas->kelas_id)->first();
-
         $total_siswa = count(Siswa::where('kelas_id', $kelas->id)->get());
 
         $data_id_mapel = Mapel::where('tapel_id', session()->get('tapel_id'))->get('id');
-
-        $data_pembelajaran = Pembelajaran::where('kelas_id', $anggota_kelas->kelas->id)->get();
-
-        // dd($data_pembelajaran);
+        $data_pembelajaran = Pembelajaran::where('kelas_id', $anggota_kelas->kelas->id)->whereIn('mapel_id', $data_id_mapel)->get();
 
         $date = Carbon::now();
         $dateFormatted = $date->format('j F Y');
@@ -90,7 +84,7 @@ class CetakRaportController extends Controller
 
         // Mencari rata-rata kelas
         foreach ($data_pembelajaran as $pembelajaran) {
-            $nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->get();
+            $nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->where('siswa_id', $anggota_kelas->id)->first()->get();
 
             $total_nilai_kelas = 0; // Inisialisasi total nilai kelas
 
@@ -108,7 +102,8 @@ class CetakRaportController extends Controller
 
         // Nilai Raport per mapel
         foreach ($data_pembelajaran as $pembelajaran) {
-            $nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->first();
+            $nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->where('siswa_id', $anggota_kelas->id)->first();
+
             if (is_null($nilai)) {
                 $pembelajaran->nilai_ko1 = 0;
             } else {
