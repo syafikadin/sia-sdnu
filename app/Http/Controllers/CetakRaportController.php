@@ -100,6 +100,8 @@ class CetakRaportController extends Controller
             }
         }
 
+        $total_nilai_array = []; // Array untuk menyimpan nilai-nilai
+        $rata_rata_nilai = 0;
 
         // Nilai Raport per mapel
         foreach ($data_pembelajaran as $pembelajaran) {
@@ -110,10 +112,22 @@ class CetakRaportController extends Controller
                 $pembelajaran->nilai_akhir = 0;
             } else {
                 $pembelajaran->nilai_akhir = number_format((($nilai->sub1 + $nilai->sub2 + $nilai->ko1 + $nilai->ko2 + $nilai->praktik + $nilai->uts_uas) / 6), 1);
+
+                // Menyimpan nilai untuk perhitungan total dan rata-rata
+                $total_nilai_array[] = $pembelajaran->nilai_akhir;
             }
         }
 
-        $raport = PDF::loadview('admin.raport.raport', compact('title', 'sekolah', 'anggota_kelas', 'data_id_mapel', 'data_pembelajaran', 'dateFormatted', 'total_siswa'));
+        // Menghitung total nilai
+        $total_nilai = array_sum($total_nilai_array);
+
+        // Menghitung rata-rata nilai
+        $count_nilai = count($total_nilai_array);
+        if ($count_nilai > 0) {
+            $rata_rata_nilai = number_format($total_nilai / $count_nilai, 1);
+        }
+
+        $raport = PDF::loadview('admin.raport.raport', compact('title', 'sekolah', 'anggota_kelas', 'data_id_mapel', 'data_pembelajaran', 'dateFormatted', 'total_siswa', 'total_nilai', 'rata_rata_nilai'));
         return $raport->stream('RAPORT ' . $anggota_kelas->nama_siswa . ' (' . $anggota_kelas->kelas->nama_kelas . ').pdf');
     }
 

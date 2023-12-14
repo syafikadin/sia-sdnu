@@ -69,19 +69,10 @@
 
                 <?php
                 $no = 0;
-                $total_nilai = 0;
-                $rata_rata = 0;
-                $count = 0;
                 ?>
-
                 @foreach ($data_pembelajaran as $pembelajaran)
                     <?php
                     $no++;
-                    $total_nilai += $pembelajaran->nilai_akhir;
-                    $count++;
-                    if ($count > 0) {
-                        $rata_rata_nilai = $total_nilai / $count;
-                    }
                     ?>
                     <tr class="nilai">
                         <td class="center">{{ $no }}</td>
