@@ -14,13 +14,10 @@
 
     {{-- CSS intern --}}
 
-    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/footer-style.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/galery.css">
-
-    <script src="assets/dist/js/adminlte.min.js"></script>
 
     <title>Siakad SDNU | {{ $title }}</title>
 </head>
@@ -31,14 +28,13 @@
         @yield('container')
     </div>
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
 
 </body>
 
