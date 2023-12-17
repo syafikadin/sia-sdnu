@@ -25,6 +25,13 @@
                         Data User
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('admin/pengumuman') ? 'active' : '' }}" aria-current="page"
+                        href="/admin/pengumuman">
+                        <i class="fa-solid fa-bullhorn me-2"></i>
+                        Pengumuman
+                    </a>
+                </li>
                 <h6
                     class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
                     <span>Data Master</span>
@@ -98,7 +105,7 @@
             <div class="logout">
                 <form action="/logout" method="post">
                     @csrf
-                    <button type="submit" class="btn btn-danger mt-5 py-2 w-100">
+                    <button type="submit" class="btn btn-danger mt-4 py-2 w-100">
                         <i class="fa-solid fa-right-from-bracket"></i> Logout
                     </button>
                 </form>

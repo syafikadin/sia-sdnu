@@ -12,6 +12,7 @@ use App\Models\Mapel;
 use App\Models\Nilai;
 use App\Models\Siswa;
 use App\Models\Pembelajaran;
+use App\Models\Pengumuman;
 use App\Models\Sekolah;
 use App\Models\Tapel;
 use Illuminate\Database\Seeder;
@@ -904,15 +905,10 @@ class DatabaseSeeder extends Seeder
             'semester' => '1',
         ]);
 
-        // AnggotaKelas::create([
-        //     'siswa_id' => '1',
-        //     'kelas_id' => '1'
-        // ]);
-
-        // AnggotaKelas::create([
-        //     'siswa_id' => '2',
-        //     'kelas_id' => '1'
-        // ]);
+        Pengumuman::create([
+            'judul' => 'Upacara Sekolah',
+            'isi' => 'Upacara menggunakan seragam batik',
+        ]);
 
         // \App\Models\User::factory(10)->create();
 

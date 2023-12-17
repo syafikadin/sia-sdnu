@@ -14,6 +14,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NilaiAkhirSemesterController;
 use App\Http\Controllers\NilaiController;
 use App\Http\Controllers\PembelajaranController;
+use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TapelController;
 use App\Http\Controllers\UserController;
@@ -58,6 +59,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('/admin/user', UserController::class);
     Route::resource('/admin/raport', CetakRaportController::class, ['uses' => ['index', 'store', 'show']]);
     Route::resource('/admin/news', NewsController::class);
+    Route::resource('/admin/pengumuman', PengumumanController::class);
 });
 // End Route Group Admin
 
