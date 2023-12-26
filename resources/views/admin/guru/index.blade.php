@@ -157,7 +157,7 @@
                                     <div class="mb-3">
                                         <label for="image" class="form-label">Photo</label>
                                         <img src="{{ asset('storage/' . $guru->image) }}"
-                                            class="img-preview img-fluid mb-3 col-sm-5 d-block"
+                                            class="img-preview img-fluid col-sm-5 d-block"
                                             id="img-preview-edit-{{ $guru->id }}">
                                         <input type="hidden" name="oldImage" value="{{ $guru->image }}">
                                         <input class="form-control @error('image') is-invalid @enderror" type="file"
@@ -272,7 +272,7 @@
 
                         <div class="mb-2">
                             <label for="image" class="form-label">Photo</label>
-                            <img class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                            <img class="img-preview img-fluid col-sm-5 d-block">
                             <input class="form-control @error('image') is-invalid @enderror" type="file"
                                 id="image" name="image" onchange="previewImage(this, '.img-preview')">
                             @error('image')

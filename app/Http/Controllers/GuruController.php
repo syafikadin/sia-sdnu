@@ -74,7 +74,7 @@ class GuruController extends Controller
             $guru->image = $imagePath; // Set the image path in the Guru model
         }
 
-        $guru->save();
+        $guru->save($validateData);
 
         return redirect('/admin/guru')->with('success', 'Guru telah ditambahkan');
     }
@@ -120,7 +120,7 @@ class GuruController extends Controller
             'jenis_kelamin' => 'required',
             'tanggal_lahir' => 'required',
             'alamat' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Add this line for image validation
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
 
         $validateData = $request->validate($rules);
