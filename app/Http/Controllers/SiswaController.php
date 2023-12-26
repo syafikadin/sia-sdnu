@@ -7,7 +7,7 @@ use App\Models\Siswa;
 use App\Models\Tapel;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class SiswaController extends Controller
 {
@@ -56,7 +56,8 @@ class SiswaController extends Controller
             'kelas_id' => 'required',
             'jenis_kelamin' => 'required',
             'tanggal_lahir' => 'required',
-            'alamat' => 'required'
+            'alamat' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Add this line for image validation
         ]);
 
         if (!$validateData) {
@@ -80,6 +81,12 @@ class SiswaController extends Controller
             'tanggal_lahir' => $request->tanggal_lahir,
             'alamat' => $request->alamat,
         ]);
+
+        // Handle image upload for Siswa
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('siswa');
+            $siswa->image = $imagePath; // Set the image path in the Siswa model
+        }
 
         $siswa->save($validateData);
 
@@ -126,10 +133,23 @@ class SiswaController extends Controller
             'kelas_id' => 'required',
             'jenis_kelamin' => 'required',
             'tanggal_lahir' => 'required',
-            'alamat' => 'required'
+            'alamat' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
 
         $validateData = $request->validate($rules);
+
+        // Handle image update for Siswa
+        if ($request->hasFile('image')) {
+            // Delete the old image from storage if it exists
+            if ($siswa->image) {
+                Storage::delete($siswa->image);
+            }
+
+            // Upload the new image and update the image path in the siswa model
+            $imagePath = $request->file('image')->store('siswa');
+            $validateData['image'] = $imagePath;
+        }
 
         Siswa::where('id', $siswa->id)
             ->update($validateData);

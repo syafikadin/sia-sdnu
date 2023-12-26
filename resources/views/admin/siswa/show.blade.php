@@ -19,9 +19,15 @@
         <div class="row my-3 mt-4">
             <div class="col-lg-2 ms-5 mt-2">
 
-                <div class="div" style="width: 150px; height: 250px; background-color: teal">
+                @if ($siswa->image)
+                    <div style="width: 150px; height: 250px;">
+                        <img src="{{ asset('storage/' . $siswa->image) }}" alt="foto" class="img-fluid mt-3">
+                    </div>
+                @else
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg" alt="profile"
+                        style="width: 150px; height: 250px;">
+                @endif
 
-                </div>
             </div>
             <div class="col-lg-8 ms-4">
                 <h2 class="mb-4">{{ $siswa->nama_siswa }}</h2>

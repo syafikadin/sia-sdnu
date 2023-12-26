@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('jenis_kelamin');
             $table->date('tanggal_lahir');
             $table->string('alamat');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

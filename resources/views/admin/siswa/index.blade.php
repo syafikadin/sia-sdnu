@@ -154,6 +154,24 @@
                                             </div>
                                         @enderror
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label">Foto</label>
+                                        <img src="{{ asset('storage/' . $siswa->image) }}"
+                                            class="img-preview img-fluid col-sm-5 d-block"
+                                            id="img-preview-edit-{{ $siswa->id }}">
+                                        <input type="hidden" name="oldImage" value="{{ $siswa->image }}">
+                                        <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                            id="image-edit-{{ $siswa->id }}" name="image"
+                                            onchange="previewImage(this, '#img-preview-edit-{{ $siswa->id }}')">
+
+                                        @error('image')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
@@ -250,6 +268,18 @@
                                 </div>
                             @enderror
                         </div>
+
+                        <div class="mb-2">
+                            <label for="image" class="form-label">Foto</label>
+                            <img class="img-preview img-fluid col-sm-5 d-block">
+                            <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                id="image" name="image" onchange="previewImage(this, '.img-preview')">
+                            @error('image')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -260,4 +290,33 @@
         </div>
     </div>
     {{-- End Modal Tambah --}}
+
+    <script>
+        function previewImage(input, previewSelector) {
+            const image = input.files[0];
+            const imgPreview = document.querySelector(previewSelector);
+
+            const oFReader = new FileReader();
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+
+            if (image) {
+                oFReader.readAsDataURL(image);
+            }
+        }
+
+        // Call the previewImage function when selecting a file in the modal for adding siswa
+        document.getElementById('image').addEventListener('change', function() {
+            previewImage(this, '.img-preview');
+        });
+
+        // Call the previewImage function dynamically for each modal when editing siswa
+        @foreach ($data_siswa as $siswa)
+            document.getElementById('image-edit-{{ $siswa->id }}').addEventListener('change', function() {
+                previewImage(this, '#img-preview-edit-{{ $siswa->id }}');
+            });
+        @endforeach
+    </script>
 @endsection
