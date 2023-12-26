@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+    @include('partials.navbar')
     <div class="mb-5"></div>
     <h1 class="mt-5 mb-4 text-center">{{ $title }}</h1>
 
@@ -70,5 +71,5 @@
         {{-- {{ $data_berita->links() }} --}}
     </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br>
-    @include('partials.footer')
+    @include('components.footer')
 @endsection

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\DashboardBeritaController;
 use App\Http\Controllers\CetakRaportController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
