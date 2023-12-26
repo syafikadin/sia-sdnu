@@ -153,6 +153,23 @@
                                             </div>
                                         @enderror
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label">Photo</label>
+                                        <img src="{{ asset('storage/' . $guru->image) }}"
+                                            class="img-preview img-fluid mb-3 col-sm-5 d-block"
+                                            id="img-preview-edit-{{ $guru->id }}">
+                                        <input type="hidden" name="oldImage" value="{{ $guru->image }}">
+                                        <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                            id="image-edit-{{ $guru->id }}" name="image"
+                                            onchange="previewImage(this, '#img-preview-edit-{{ $guru->id }}')">
+
+                                        @error('image')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
@@ -252,6 +269,19 @@
                                 </div>
                             @enderror
                         </div>
+
+                        <div class="mb-2">
+                            <label for="image" class="form-label">Photo</label>
+                            <img class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                            <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                id="image" name="image" onchange="previewImage(this, '.img-preview')">
+                            @error('image')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -262,4 +292,34 @@
         </div>
     </div>
     {{-- End Modal Tambah --}}
+
+    <!-- Add this script before the closing </body> tag -->
+    <script>
+        function previewImage(input, previewSelector) {
+            const image = input.files[0];
+            const imgPreview = document.querySelector(previewSelector);
+
+            const oFReader = new FileReader();
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+
+            if (image) {
+                oFReader.readAsDataURL(image);
+            }
+        }
+
+        // Call the previewImage function when selecting a file in the modal for adding guru
+        document.getElementById('image').addEventListener('change', function() {
+            previewImage(this, '.img-preview');
+        });
+
+        // Call the previewImage function dynamically for each modal when editing guru
+        @foreach ($gurus as $guru)
+            document.getElementById('image-edit-{{ $guru->id }}').addEventListener('change', function() {
+                previewImage(this, '#img-preview-edit-{{ $guru->id }}');
+            });
+        @endforeach
+    </script>
 @endsection

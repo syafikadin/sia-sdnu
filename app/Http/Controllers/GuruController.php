@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class GuruController extends Controller
 {
@@ -44,8 +45,10 @@ class GuruController extends Controller
             'jenis_kelamin' => 'required',
             'tanggal_lahir' => 'required',
             'alamat' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Add this line for image validation
         ]);
 
+        // Create a new User
         $user = new User([
             'username' => strtolower(str_replace(' ', '', $request->nama_guru)),
             'password' => bcrypt('123456'),
@@ -54,6 +57,7 @@ class GuruController extends Controller
 
         $user->save();
 
+        // Create a new Guru
         $guru = new Guru([
             'user_id' => $user->id,
             'nama_guru' => $request->nama_guru,
@@ -64,7 +68,13 @@ class GuruController extends Controller
             'alamat' => $request->alamat,
         ]);
 
-        $guru->save($validateData);
+        // Handle image upload for Guru
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('guru');
+            $guru->image = $imagePath; // Set the image path in the Guru model
+        }
+
+        $guru->save();
 
         return redirect('/admin/guru')->with('success', 'Guru telah ditambahkan');
     }
@@ -110,12 +120,24 @@ class GuruController extends Controller
             'jenis_kelamin' => 'required',
             'tanggal_lahir' => 'required',
             'alamat' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Add this line for image validation
         ];
 
         $validateData = $request->validate($rules);
 
-        Guru::where('id', $guru->id)
-            ->update($validateData);
+        // Handle image update for Guru
+        if ($request->hasFile('image')) {
+            // Delete the old image from storage if it exists
+            if ($guru->image) {
+                Storage::delete($guru->image);
+            }
+
+            // Upload the new image and update the image path in the Guru model
+            $imagePath = $request->file('image')->store('guru');
+            $validateData['image'] = $imagePath;
+        }
+
+        Guru::where('id', $guru->id)->update($validateData);
 
         return redirect('/admin/guru')->with('success', 'Data guru telah dirubah');
     }
@@ -128,6 +150,11 @@ class GuruController extends Controller
      */
     public function destroy(Guru $guru)
     {
+        // Delete the image from storage if it exists
+        if ($guru->image) {
+            Storage::delete($guru->image);
+        }
+
         Guru::destroy($guru->id);
         User::destroy($guru->user_id);
 
