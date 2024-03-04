@@ -4,30 +4,28 @@
     @include('partials.navbar')
     <div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-
             <div class="carousel-inner">
+
                 <div class="carousel-item active">
                     <img src="https://images.unsplash.com/photo-1504438190342-5951e134ffee?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         class="d-block w-100" alt="First slide" style="max-height: 500px; object-fit: cover">
                     <div class="carousel-caption">
                         <h4 class="font-weight-bold text-shadow-effect">SD NU Kepanjen</h4>
                         <p class="text-shadow-effect">"Menumbuhkan kecerdasan, mendukung kreativitas, dan mewujudkan masa
-                            depan
-                            yang
-                            cerah. Bergabunglah
-                            dengan kami untuk petualangan belajar yang menyenangkan!"</p>
+                            depan yang cerah. Bergabunglah dengan kami untuk petualangan belajar yang menyenangkan!"</p>
                     </div>
                 </div>
-                <div class="carousel-item ">
-                    <img src="https://images.unsplash.com/photo-1508491502856-64602b537fbf?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1682685796186-1bb4a5655653?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         class="d-block w-100" alt="First slide" style="max-height: 500px; object-fit: cover">
                     <div class="carousel-caption">
                         <h4 class="font-weight-bold text-shadow-effect">SD NU Kepanjen</h4>
-                        <p class="text-shadow-effect">"Menyongsong masa depan cerah dengan kecerdasan dan kebaikan. Selamat
-                            datang di [Nama Sekolah],
-                            tempat di mana setiap langkah adalah petualangan belajar!"</p>
+                        <p class="text-shadow-effect">"Menumbuhkan kecerdasan, mendukung kreativitas, dan mewujudkan masa
+                            depan yang cerah. Bergabunglah dengan kami untuk petualangan belajar yang menyenangkan!"</p>
                     </div>
                 </div>
+
             </div>
 
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

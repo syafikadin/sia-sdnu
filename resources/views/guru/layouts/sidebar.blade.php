@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <!-- Move logout button here -->
-                <li class="nav-item nav-item-logout">
+                <li class="nav-item nav-item-logout logout" style="margin-top: 400px">
                     <form action="/logout" method="post">
                         @csrf
                         <button type="submit" class="btn btn-danger mt-3 py-2 w-100">
