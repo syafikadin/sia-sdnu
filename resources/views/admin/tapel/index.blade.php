@@ -38,7 +38,7 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $tapel->tahun_pelajaran }}</td>
-                    <td>{{ $tapel->semester }}</td>
+                    <td>{{ $tapel->semester == 1 ? 'Ganjil' : 'Genap' }}</td>
                 </tr>
             @endforeach
         </tbody>

@@ -50,15 +50,15 @@
                                 </thead>
                                 <tbody>
                                     <?php $no = 0; ?>
-                                    @foreach ($data_anggota_kelas->sortBy('siswa.nama_siswa') as $anggota_kelas)
+                                    @foreach ($data_anggota_kelas->sortBy('siswa.nis') as $anggota_kelas)
                                         <?php $no++; ?>
                                         <tr>
-                                            <input type="hidden" name="siswa_id[]" value="{{ $anggota_kelas->id }}">
+                                            <input type="hidden" name="siswa_id[]" value="{{ $anggota_kelas->siswa->id }}">
                                             <td class="text-center">{{ $no }}</td>
-                                            <td class="text-center">{{ $anggota_kelas->nis }}</td>
-                                            <td>{{ $anggota_kelas->nama_siswa }}</td>
+                                            <td class="text-center">{{ $anggota_kelas->siswa->nis }}</td>
+                                            <td>{{ $anggota_kelas->siswa->nama_siswa }}</td>
                                             <td class="text-center">
-                                                {{ $anggota_kelas->jenis_kelamin == 0 ? 'Laki - laki' : 'Perempuan' }}
+                                                {{ $anggota_kelas->siswa->jenis_kelamin == 0 ? 'Laki - laki' : 'Perempuan' }}
                                             </td>
                                             <td class="text-center">
                                                 <form action="{{ route('raport.show', $anggota_kelas->id) }}"

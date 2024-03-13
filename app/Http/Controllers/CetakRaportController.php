@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnggotaKelas;
 use App\Models\Kelas;
 use App\Models\Mapel;
 use App\Models\Nilai;
@@ -50,11 +51,11 @@ class CetakRaportController extends Controller
 
         $kelas = Kelas::findorfail($request->kelas_id);
 
-        // dd($kelas);
+        $data_kelas = Kelas::where('tapel_id', session()->get('tapel_id'))->get();
 
-        $data_kelas = Kelas::get();
-
-        $data_anggota_kelas = Siswa::where('kelas_id', $kelas->id)->get();
+        $data_anggota_kelas = AnggotaKelas::where('kelas_id', $kelas->id)->get();
+        // dd($data_anggota_kelas);
+        // return;
 
         return view('admin.raport.index', compact('title', 'kelas', 'data_kelas', 'data_anggota_kelas',));
     }
@@ -69,7 +70,7 @@ class CetakRaportController extends Controller
     {
         $title = 'Raport UAS';
         $sekolah = Sekolah::first();
-        $anggota_kelas = Siswa::findorfail($id);
+        $anggota_kelas = AnggotaKelas::findorfail($id);
 
         $kelas = Kelas::where('id', $anggota_kelas->kelas_id)->first();
         $total_siswa = count(Siswa::where('kelas_id', $kelas->id)->get());
@@ -128,7 +129,7 @@ class CetakRaportController extends Controller
         }
 
         $raport = PDF::loadview('admin.raport.raport', compact('title', 'sekolah', 'anggota_kelas', 'data_id_mapel', 'data_pembelajaran', 'dateFormatted', 'total_siswa', 'total_nilai', 'rata_rata_nilai'));
-        return $raport->stream('RAPORT ' . $anggota_kelas->nama_siswa . ' (' . $anggota_kelas->kelas->nama_kelas . ').pdf');
+        return $raport->stream('RAPORT ' . $anggota_kelas->siswa->nama_siswa . ' (' . $anggota_kelas->kelas->nama_kelas . ').pdf');
     }
 
     /**

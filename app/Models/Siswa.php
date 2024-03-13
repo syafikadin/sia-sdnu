@@ -59,4 +59,9 @@ class Siswa extends Authenticatable
     {
         return $this->hasOne(Nilai::class);
     }
+
+    public function anggota_kelas()
+    {
+        return $this->hasMany(AnggotaKelas::class);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnggotaKelas;
 use App\Models\Kelas;
 use App\Models\Mapel;
 use App\Models\Nilai;
@@ -22,10 +23,12 @@ class NilaiAkhirSemesterController extends Controller
      */
     public function index()
     {
-        $title = 'Nilai Akhir Semester  ';
+        $title = 'Nilai Akhir Semester';
         $siswa = Siswa::where('user_id', Auth::user()->id)->first();
+
         $data_id_kelas = Kelas::where('tapel_id', session()->get('tapel_id'))->get('id');
-        $anggota_kelas = Siswa::whereIn('kelas_id', $data_id_kelas)->where('id', $siswa->id)->first();
+
+        $anggota_kelas = AnggotaKelas::whereIn('kelas_id', $data_id_kelas)->where('siswa_id', $siswa->id)->first();
         $data_pembelajaran = Pembelajaran::where('kelas_id', $anggota_kelas->kelas->id)->get();
 
         // Nilai pada index
@@ -66,7 +69,7 @@ class NilaiAkhirSemesterController extends Controller
 
         $sekolah = Sekolah::first();
 
-        $anggota_kelas = Siswa::findorfail($id);
+        $anggota_kelas = AnggotaKelas::findorfail($id);
 
         $kelas = Kelas::where('id', $anggota_kelas->kelas_id)->first();
 
@@ -112,6 +115,6 @@ class NilaiAkhirSemesterController extends Controller
         }
 
         $raport = PDF::loadview('admin.raport.raport', compact('title', 'sekolah', 'anggota_kelas', 'data_id_mapel', 'data_pembelajaran', 'dateFormatted', 'total_siswa'));
-        return $raport->stream('RAPORT ' . $anggota_kelas->nama_siswa . ' (' . $anggota_kelas->kelas->nama_kelas . ').pdf');
+        return $raport->stream('RAPORT ' . $anggota_kelas->siswa->nama_siswa . ' (' . $anggota_kelas->kelas->nama_kelas . ').pdf');
     }
 }

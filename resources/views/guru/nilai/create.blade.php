@@ -43,8 +43,9 @@
                                         @foreach ($data_anggota_kelas->sortBy('siswa.nama_siswa') as $anggota_kelas)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                                <td>{{ $anggota_kelas->nama_siswa }}</td>
-                                                <input type="hidden" name="siswa_id[]" value="{{ $anggota_kelas->id }}">
+                                                <td>{{ $anggota_kelas->siswa->nama_siswa }}</td>
+                                                <input type="hidden" name="siswa_id[]"
+                                                    value="{{ $anggota_kelas->siswa->id }}">
                                                 <td>
                                                     <input type="number" class="form-control" name="ko1[]" min="0"
                                                         max="100" step="0.01" required>

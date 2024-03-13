@@ -12,6 +12,8 @@ use App\Models\Siswa;
 use Illuminate\Support\Facades\Auth;
 use App\Exports\FormatImportNilai;
 use App\Exports\FormatImportNilaiExport;
+use App\Models\AnggotaKelas;
+use App\Models\Tapel;
 use Maatwebsite\Excel\Facades\Excel;
 
 class NilaiController extends Controller
@@ -23,15 +25,18 @@ class NilaiController extends Controller
      */
     public function index()
     {
+        $title = 'Input Nilai';
+        $tapel = Tapel::findorfail(session()->get('tapel_id'));
 
         $guru = Guru::where('user_id', Auth::user()->id)->first();
+        $id_kelas = Kelas::where('tapel_id', $tapel->id)->get('id');
 
-        $data_anggota_kelas = Kelas::where('guru_id', $guru->id)->first();
+        // $data_anggota_kelas = Kelas::where('guru_id', $guru->id)->first();
 
-        $data_penilaian = Pembelajaran::where('guru_id', $guru->id)->orderBy('mapel_id', 'ASC')->get();
+        $data_penilaian = Pembelajaran::where('guru_id', $guru->id)->whereIn('kelas_id', $id_kelas)->orderBy('mapel_id', 'ASC')->get();
 
         foreach ($data_penilaian as $penilaian) {
-            $data_anggota_kelas = Siswa::where('kelas_id', $penilaian->id)->get();
+            $data_anggota_kelas = AnggotaKelas::where('kelas_id', $penilaian->kelas_id)->get();
             $data_nilai = Nilai::where('pembelajaran_id', $penilaian->id)->get();
 
             $penilaian->jumlah_anggota_kelas = count($data_anggota_kelas);
@@ -49,7 +54,7 @@ class NilaiController extends Controller
     {
         $pembelajaran = Pembelajaran::findorfail($request->pembelajaran_id);
 
-        $data_anggota_kelas = Siswa::where('kelas_id', $pembelajaran->kelas_id)->get();
+        $data_anggota_kelas = AnggotaKelas::where('kelas_id', $pembelajaran->kelas_id)->get();
 
         $data_nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->get();
 

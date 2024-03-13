@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Models\AnggotaKelas;
 use App\Models\Nilai;
 use App\Models\Pembelajaran;
 use App\Models\Siswa;
@@ -24,7 +25,7 @@ class FormatImportNilaiExport implements FromView, ShouldAutoSize
     public function view(): View
     {
         $pembelajaran = Pembelajaran::findorfail($this->id);
-        $data_anggota_kelas = Siswa::where('kelas_id', $pembelajaran->kelas_id)->get();
+        $data_anggota_kelas = AnggotaKelas::where('kelas_id', $pembelajaran->kelas_id)->get();
 
         return view('exports.formatImportNilai.formatImportNilai', compact('pembelajaran', 'data_anggota_kelas'));
     }

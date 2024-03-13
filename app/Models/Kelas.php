@@ -27,4 +27,9 @@ class Kelas extends Model
     {
         return $this->belongsTo(Tapel::class);
     }
+
+    public function anggota_kelas()
+    {
+        return $this->hasMany(AnggotaKelas::class);
+    }
 }

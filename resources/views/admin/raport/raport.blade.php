@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>{{ $title }} | {{ $anggota_kelas->nama_siswa }} ({{ $anggota_kelas->nis }})</title>
+    <title>{{ $title }} | {{ $anggota_kelas->siswa->nama_siswa }} ({{ $anggota_kelas->siswa->nis }})</title>
     <link href="./assets/invoice_raport.css" rel="stylesheet">
 </head>
 
@@ -31,13 +31,13 @@
                 </tr>
                 <tr>
                     <td style="width: 19%;">Nama Peserta Didik</td>
-                    <td style="width: 52%;">: {{ $anggota_kelas->nama_siswa }} </td>
+                    <td style="width: 52%;">: {{ $anggota_kelas->siswa->nama_siswa }} </td>
                     <td style="width: 16%;">Tahun Pelajaran</td>
                     <td style="width: 13%;">: {{ $anggota_kelas->kelas->tapel->tahun_pelajaran }}</td>
                 </tr>
                 <tr>
                     <td style="width: 19%;">Nomor Induk/NISN</td>
-                    <td style="width: 52%;">: {{ $anggota_kelas->nis }} </td>
+                    <td style="width: 52%;">: {{ $anggota_kelas->siswa->nis }} </td>
                 </tr>
             </table>
         </div>
