@@ -7,12 +7,12 @@
             <div class="carousel-inner">
 
                 <div class="carousel-item active">
-                    <img src="https://images.unsplash.com/photo-1504438190342-5951e134ffee?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        class="d-block w-100" alt="First slide" style="max-height: 500px; object-fit: cover">
+                    <img src="\img\IMG_2189.jpg" class="d-block w-100" alt="First slide"
+                        style="max-height: 500px; object-fit: cover">
                     <div class="carousel-caption">
-                        <h4 class="font-weight-bold text-shadow-effect">SD NU Kepanjen</h4>
+                        {{-- <h4 class="font-weight-bold text-shadow-effect">SD NU Kepanjen</h4>
                         <p class="text-shadow-effect">"Menumbuhkan kecerdasan, mendukung kreativitas, dan mewujudkan masa
-                            depan yang cerah. Bergabunglah dengan kami untuk petualangan belajar yang menyenangkan!"</p>
+                            depan yang cerah. Bergabunglah dengan kami untuk petualangan belajar yang menyenangkan!"</p> --}}
                     </div>
                 </div>
 
@@ -41,62 +41,25 @@
             <h3 class="font-weight-bold font-black">Berita terbaru</h3>
             <hr class="border-grey" />
             <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="card shadow-effect mt-3">
-                        <img class="card-img-top"
-                            src="https://images.unsplash.com/photo-1607211851821-8be3cd6146f0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <h6 class="card-title">Juara 1 Bulutangkis</h6>
-                            <p class="card-text text-small">Some quick example text to build on the card title and make up
-                                the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-success button-success w-100">Go somewhere</a>
+                @foreach ($data_berita as $berita)
+                    <div class="col-md-3 col-sm-6">
+                        <div class="card shadow-effect mt-3">
+                            @if ($berita->image)
+                                <img src="{{ asset('storage/' . $berita->image) }}" alt="image"
+                                    class="card-img-top img-fluid">
+                            @else
+                                {{-- <img src="https://source.unsplash.com/400x300?{{ $berita->category->name }}" class="card-img-top" alt=""> --}}
+                            @endif
+                            <div class="card-body">
+                                <h6 class="card-title"><a href="/berita/{{ $berita->id }}"
+                                        class="text-decoration-none">{{ $berita->news }}</a></h6>
+                                <p class="card-text text-small">{!! Str::limit($berita->body, 50) !!}</p>
+                                <a href="/berita/{{ $berita->id }}" class="btn btn-success button-success w-100">Read
+                                    More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="card shadow-effect mt-3">
-                        <img class="card-img-top"
-                            src="https://images.unsplash.com/photo-1607211851821-8be3cd6146f0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <h6 class="card-title">Juara 1 Bulutangkis</h6>
-                            <p class="card-text text-small">Some quick example text to build on the card title and make up
-                                the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-success button-success w-100">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="card shadow-effect mt-3">
-                        <img class="card-img-top"
-                            src="https://images.unsplash.com/photo-1607211851821-8be3cd6146f0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <h6 class="card-title">Juara 1 Bulutangkis</h6>
-                            <p class="card-text text-small">Some quick example text to build on the card title and make up
-                                the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-success button-success w-100">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="card shadow-effect mt-3">
-                        <img class="card-img-top"
-                            src="https://images.unsplash.com/photo-1607211851821-8be3cd6146f0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <h6 class="card-title">Juara 1 Bulutangkis</h6>
-                            <p class="card-text text-small">Some quick example text to build on the card title and make up
-                                the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-success button-success w-100">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 
@@ -105,8 +68,8 @@
 
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
-                        <img src="https://images.unsplash.com/photo-1574246604907-db69e30ddb97?q=80&w=1573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="image-islamic" class="img-fluid" style="width: 100%; max-height: 400px; object-fit: cover">
+                        <img src="\img\5.webp" alt="image-islamic" class="img-fluid"
+                            style="width: 100%; max-height: 400px; object-fit: cover">
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <h3 class="font-weight-bold font-black">Kenapa memilih kami?</h3>
@@ -129,12 +92,11 @@
             <div class="row text-black">
                 <div class="col-md-6 col-sm-12">
                     <h5>Profile</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At expedita voluptas consequatur doloremque
-                        mollitia harum qui doloribus aspernatur quisquam fugiat modi, repudiandae reiciendis in eligendi
-                        facilis culpa optio. Cumque, laboriosam veniam veritatis corrupti minima quos eligendi, id assumenda
-                        nihil doloremque eveniet porro distinctio in, similique earum voluptatem quibusdam nesciunt quaerat
-                        suscipit itaque consequatur? Reprehenderit itaque autem corporis et, maxime sequi voluptatum quia,
-                        repudiandae nulla unde maiores sint ducimus, excepturi porro.</p>
+                    <p>SD NU Kepanjen adalah sekolah negeri swasta di kepanjen. SD ini berpengalaman dari tahun 1990 yang
+                        telah terakreditasi B. SD NU berada di bawah naungan yayasan Hasyim Asy'ari</p>
+                    <p>SD NU Memiliki Visi Sebagai Berikut :</p>
+                    <p>1. Terwujudnya peserta didik yang menjalankan syariat islam dengan tekun dan benar serta berkemampuan
+                        akademik yang bersaing</p>
                 </div>
                 <div class="col-md-6 col-sm-12">
 
@@ -150,7 +112,7 @@
         </div>
 
         <div class="container mb-5">
-            <h3 class="font-weight-bold font-black">Galery</h3>
+            <h3 class="font-weight-bold font-black">Galeri</h3>
             <hr class="border-grey" />
 
             @include('components.galery')

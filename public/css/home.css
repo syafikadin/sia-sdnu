@@ -26,6 +26,12 @@
     display: block; /* Agar gambar memenuhi lebar kontainer */
     margin: 0 auto; /* Untuk memposisikan gambar di tengah */
   }
+
+  .img-fasilitas {
+   width: 100%;
+   height: 400px;
+   object-fit: cover;
+}
  
  
   

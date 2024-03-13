@@ -4,6 +4,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CetakRaportController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KabarController;
 use App\Http\Controllers\KelasController;
 use Illuminate\Support\Facades\Route;
@@ -29,9 +30,12 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => 'Home'
+Route::get('/', [HomeController::class, 'index']);
+
+
+Route::get('/fasilitas', function () {
+    return view('fasilitas', [
+        "title" => 'Fasilitas'
     ]);
 });
 

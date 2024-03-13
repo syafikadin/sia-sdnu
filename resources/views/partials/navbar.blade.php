@@ -14,7 +14,7 @@
                     <a class="nav-link" href="#">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Fasilitas</a>
+                    <a class="nav-link" href="/fasilitas">Fasilitas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/berita">Berita</a>
