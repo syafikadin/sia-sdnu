@@ -23,6 +23,7 @@ class KelasController extends Controller
         $tapel = Tapel::findorfail(session()->get('tapel_id'));
         $data_mapel = Mapel::where('tapel_id', $tapel->id)->get();
         if (count($data_mapel) == 0) {
+            return redirect('/admin/mapel')->with('error', 'Mohon isikan data mata pelajaran');
         } else {
             $data_guru = Guru::orderBy('nama_guru', 'ASC')->get();
             $data_kelas = Kelas::where('tapel_id', $tapel->id)->get();
