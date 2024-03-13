@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnggotaKelas;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use App\Models\Tapel;
@@ -89,6 +90,12 @@ class SiswaController extends Controller
         }
 
         $siswa->save($validateData);
+
+        $anggota_kelas = new AnggotaKelas([
+            'siswa_id' => $siswa->id,
+            'kelas_id' => $request->kelas_id,
+        ]);
+        $anggota_kelas->save();
 
         return redirect('/admin/siswa')->with('success', 'Siswa telah ditambahkan');
     }
