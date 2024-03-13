@@ -37,7 +37,7 @@ class NilaiAkhirSemesterController extends Controller
         } else {
             $data_pembelajaran = Pembelajaran::where('kelas_id', $anggota_kelas->kelas_id)->get();
             foreach ($data_pembelajaran as $pembelajaran) {
-                $pembelajaran->nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->where('siswa_id', $anggota_kelas->id)->first();
+                $pembelajaran->nilai = Nilai::where('pembelajaran_id', $pembelajaran->id)->where('anggota_kelas_id', $anggota_kelas->id)->first();
             }
 
             // Mencari rata-rata kelas
