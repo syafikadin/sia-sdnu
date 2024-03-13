@@ -911,130 +911,125 @@ class DatabaseSeeder extends Seeder
             'isi' => 'Upacara menggunakan seragam batik',
         ]);
 
-        AnggotaKelas::created(([
+        AnggotaKelas::create([
             'siswa_id' => '1',
-            'kelas_id' => '1'
-        ]));
+            'kelas_id' => '1',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '1',
-        //     'kelas_id' => '1',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '2',
+            'kelas_id' => '1',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '2',
-        //     'kelas_id' => '1',
-        // ]);
-
-        AnggotaKelas::created([
+        AnggotaKelas::create([
             'siswa_id' => '3',
             'kelas_id' => '2',
         ]);
 
-        AnggotaKelas::created([
+        AnggotaKelas::create([
             'siswa_id' => '4',
             'kelas_id' => '2',
         ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '5',
-        //     'kelas_id' => '3',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '5',
+            'kelas_id' => '3',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '6',
-        //     'kelas_id' => '3',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '6',
+            'kelas_id' => '3',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '7',
-        //     'kelas_id' => '4',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '7',
+            'kelas_id' => '4',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '8',
-        //     'kelas_id' => '4',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '8',
+            'kelas_id' => '4',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '9',
-        //     'kelas_id' => '5',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '9',
+            'kelas_id' => '5',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '10',
-        //     'kelas_id' => '5',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '10',
+            'kelas_id' => '5',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '11',
-        //     'kelas_id' => '6',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '11',
+            'kelas_id' => '6',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '12',
-        //     'kelas_id' => '6',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '12',
+            'kelas_id' => '6',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '13',
-        //     'kelas_id' => '7',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '13',
+            'kelas_id' => '7',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '14',
-        //     'kelas_id' => '7',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '14',
+            'kelas_id' => '7',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '15',
-        //     'kelas_id' => '8',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '15',
+            'kelas_id' => '8',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '16',
-        //     'kelas_id' => '8',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '16',
+            'kelas_id' => '8',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '17',
-        //     'kelas_id' => '9',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '17',
+            'kelas_id' => '9',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '18',
-        //     'kelas_id' => '9',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '18',
+            'kelas_id' => '9',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '19',
-        //     'kelas_id' => '10',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '19',
+            'kelas_id' => '10',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '20',
-        //     'kelas_id' => '10',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '20',
+            'kelas_id' => '10',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '21',
-        //     'kelas_id' => '11',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '21',
+            'kelas_id' => '11',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '22',
-        //     'kelas_id' => '11',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '22',
+            'kelas_id' => '11',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '23',
-        //     'kelas_id' => '12',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '23',
+            'kelas_id' => '12',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '24',
-        //     'kelas_id' => '12',
-        // ]);
+        AnggotaKelas::create([
+            'siswa_id' => '24',
+            'kelas_id' => '12',
+        ]);
 
         // \App\Models\User::factory(10)->create();
 
