@@ -42,8 +42,9 @@
                                         @foreach ($data_nilai as $nilai)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                                <td>{{ $nilai->siswa->nama_siswa }}</td>
-                                                <input type="hidden" name="siswa_id[]" value="{{ $nilai->siswa_id }}">
+                                                <td>{{ $nilai->anggota_kelas->siswa->nama_siswa }}</td>
+                                                <input type="hidden" name="anggota_kelas_id[]"
+                                                    value="{{ $nilai->anggota_kelas_id }}">
                                                 <td>
                                                     <input type="number" class="form-control" name="ko1[]"
                                                         value="{{ $nilai->ko1 }}" min="0" max="100"

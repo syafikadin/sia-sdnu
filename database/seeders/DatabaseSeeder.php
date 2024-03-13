@@ -926,15 +926,15 @@ class DatabaseSeeder extends Seeder
         //     'kelas_id' => '1',
         // ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '3',
-        //     'kelas_id' => '2',
-        // ]);
+        AnggotaKelas::created([
+            'siswa_id' => '3',
+            'kelas_id' => '2',
+        ]);
 
-        // AnggotaKelas::created([
-        //     'siswa_id' => '4',
-        //     'kelas_id' => '2',
-        // ]);
+        AnggotaKelas::created([
+            'siswa_id' => '4',
+            'kelas_id' => '2',
+        ]);
 
         // AnggotaKelas::created([
         //     'siswa_id' => '5',

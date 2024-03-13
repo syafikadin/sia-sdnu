@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('nilais', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pembelajaran_id');
-            $table->foreignId('siswa_id');
+            // $table->foreignId('siswa_id');
+            $table->unsignedBigInteger('anggota_kelas_id')->unsigned();
             $table->decimal('ko1')->default(0);
             $table->decimal('ko2')->default(0);
             $table->decimal('sub1')->default(0);
