@@ -2,13 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h5 class="font-weight-bold footer-white-color">Sekolah Dasar NU</h5>
-                <p class="footer-grey-color">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum delectus
+                <h5 class="font-weight-bold footer-white-color">Sekolah Dasar Nahdlatul Ulama'</h5>
+                {{-- <h5 class="font-weight-bold footer-white-color">Nahdlatul Ulama'</h5> --}}
+                {{-- <p class="footer-grey-color">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum delectus
                     dolores
                     vel hic nostrum,
                     reprehenderit voluptatum eligendi et eius alias fuga ipsa impedit ea, laboriosam sit optio tempora
                     autem
-                    inventore ducimus in laudantium error!</p>
+                    inventore ducimus in laudantium error!</p> --}}
             </div>
             <div class="col-md-3">
                 <h6 class="footer-white-color">Kategori</h6>
