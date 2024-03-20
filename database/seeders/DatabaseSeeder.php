@@ -165,7 +165,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'username' => 'audykhalista',
+            'username' => 'busthomi',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'role' => '3'
         ]);
@@ -501,8 +501,8 @@ class DatabaseSeeder extends Seeder
             'user_id' => '21',
             'kelas_id' => '1',
             'nis' => '202',
-            'nama_siswa' => 'Audy Khalista',
-            'jenis_kelamin' => true,
+            'nama_siswa' => 'Busthomi',
+            'jenis_kelamin' => false,
             'tanggal_lahir' => '2000-06-16',
             'alamat' => 'Solo'
         ]);
