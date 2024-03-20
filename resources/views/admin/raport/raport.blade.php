@@ -100,7 +100,24 @@
 
                 <tr class="nilai">
                     <td colspan="2">Prestasi / ranking dari {{ $total_siswa }} anak</td>
-                    <td colspan="2">Ke ...</td>
+                    <td colspan="2">Ke ........</td>
+                </tr>
+
+                <tr class="nilai">
+                    <td rowspan="3" colspan="2">
+                        <span style="margin-left: 230px;">Sakit</span><br>
+                        <span>Tidak masuk karena<span style="margin-left:106px;">Ijin</span></span><br>
+                        <span style="margin-left:230px;">Alpa</span>
+                    </td>
+                    <td colspan="2">.............. Hari</td>
+                </tr>
+
+                <tr class="nilai">
+                    <td colspan="2">.............. Hari</td>
+                </tr>
+
+                <tr class="nilai">
+                    <td colspan="2">.............. Hari</td>
                 </tr>
 
                 <tr>
