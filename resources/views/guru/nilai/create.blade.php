@@ -40,7 +40,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($data_anggota_kelas->sortBy('siswa.nama_siswa') as $anggota_kelas)
+                                        @foreach ($data_anggota_kelas->sortBy('siswa.nis') as $anggota_kelas)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $anggota_kelas->siswa->nama_siswa }}</td>
