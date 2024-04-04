@@ -6,6 +6,7 @@ use App\Models\Guru;
 use App\Models\Kelas;
 use App\Models\Nilai;
 use App\Models\Pembelajaran;
+use App\Models\Pengumuman;
 use App\Models\Siswa;
 use App\Models\Tapel;
 use Illuminate\Http\Request;
@@ -60,14 +61,15 @@ class DashboardController extends Controller
 
             $kelas = Kelas::where('id', $siswa->id)->first();
 
+            $data_pengumuman = Pengumuman::all();
+
             return view('siswa.index', compact(
                 'title',
                 'tapel',
                 'jumlah_anggota_kelas',
-                'kelas'
+                'kelas',
+                'data_pengumuman'
             ));
-
-            dd($kelas);
 
 
 

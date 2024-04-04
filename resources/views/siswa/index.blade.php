@@ -25,4 +25,20 @@
             </div>
         </div>
     </div>
+
+    <div class="container mt-4">
+        <h2 class="mb-4">Pengumuman Terbaru</h2>
+        <div class="row">
+            @foreach ($data_pengumuman as $pengumuman)
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $pengumuman->judul }}</h5>
+                            <p class="card-text">{{ $pengumuman->isi }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 @endsection
