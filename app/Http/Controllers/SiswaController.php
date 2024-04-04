@@ -56,19 +56,25 @@ class SiswaController extends Controller
             'nama_siswa' => 'required',
             'kelas_id' => 'required',
             'jenis_kelamin' => 'required',
-            'tanggal_lahir' => 'required',
+            'tanggal_lahir' => 'required|date|before_or_equal:' . now()->subYears(6)->format('Y-m-d'),
             'alamat' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Add this line for image validation
+            'image' => 'mimes:jpeg,png,jpg|max:2048',
         ]);
 
         if (!$validateData) {
-            return back()->with('toast_error', $validateData->messages()->all()[0])->withInput();
+            return redirect('/admin/siswa')->with('error', 'Isikan sesuai dengan ketentuan');
         } else {
             $user = new User([
                 'username' => strtolower(str_replace(' ', '', $request->nama_siswa . $request->nis)),
                 'password' => bcrypt('123456'),
                 'role' => 3,
             ]);
+
+            // Check if NIS already exists
+            $existingSiswa = Siswa::where('nis', $request->nis)->first();
+            if ($existingSiswa) {
+                return redirect('/admin/siswa')->with('error', 'NIS sudah digunakan untuk siswa lain');
+            }
 
             $user->save();
         }
