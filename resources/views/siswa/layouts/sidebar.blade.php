@@ -31,7 +31,7 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
             <h6
                 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                <span>Administrator</span>
+                <span>Siswa</span>
             </h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
