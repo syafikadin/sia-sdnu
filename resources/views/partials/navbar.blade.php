@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand " href="/">Siakad SD-NU</a>
+        <a class="navbar-brand " href="/">
+            <img src="/img/logo.jpg" alt="" style="height: 40px;"><span style="margin-right: 5px"></span>SD NU
+            Kepanjen
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
